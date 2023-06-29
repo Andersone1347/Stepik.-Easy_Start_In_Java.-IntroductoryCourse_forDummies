@@ -74,3 +74,36 @@ class Man {
     }
 }
 ```
+
+##### Задача
+
+Доработайте программу так, чтобы она выводила на печать имя "Ivan" (без кавычек).
+
+Sample Input:
+
+
+Sample Output:
+
+Ivan
+
+```
+class  {
+    public static void main() {
+        //put your code here
+        System.out.println();
+    }
+}
+```
+
+##### Решение 
+
+Отсувствует название класса и в методе main не прописанно (String[] args). Создаём стринг name и выводим через sout.
+
+```
+class Main {
+    public static void main(String[] args) {
+        String name = "Ivan";
+        System.out.println(name);
+    }
+}
+```
