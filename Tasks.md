@@ -261,3 +261,336 @@ class Main {
 }
 ```
 ---
+#### 2.4 Ввод данных
+
+##### Задача 
+
+Доработайте программу так, чтобы она считывала строку, а затем выводила эту же строку на печать.
+
+Примечание. В этой задаче, как и в большинстве других, есть скрытые тесты с другими значениями ввода. Код не должен быть привязан к конкретным данным.
+
+Sample Input:
+
+10
+Sample Output:
+
+10
+```
+import java.util.Scanner;
+
+class Test {
+    public static void main(String[] args) {
+        _______ sc = new Scanner(System.in);
+        String st = sc.________();
+
+   }
+}
+```
+##### Решение 
+
+Scanner, nextline(), и через соут выводим стринг , который считывает сканер.
+
+```
+import java.util.Scanner;
+
+class Test {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String st = sc.nextLine();
+        System.out.println(st);
+    }
+}
+```
+Альтернативное решение :           
+Без записывания в стринг, а сразу в соут и в конце закрытие сканера close.
+```
+import java.util.Scanner;
+
+class test {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print (sc.nextLine());
+        sc.close();
+    }
+}
+```
+##### Задача 
+
+Напишите программу, которая считывает имя пользователя и затем приветствует его.
+
+Sample Input:
+
+Нео
+Sample Output:
+
+Привет, Нео
+
+```
+class MySolution {
+    public static void main(String[] args) {
+        //put your code here        
+    }
+}
+```
+##### Решение 
+Создаём сканер, в сауте пишем нужный текст + полученные данные со сканера.
+```
+import java.util.Scanner;
+
+class MySolution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Привет, "+sc.nextLine());
+        sc.close();
+    }
+}
+```
+
+Альтернативное решение: 
+В одну строку.
+```
+import java.util.Scanner;
+class Main {
+public static void main(String[] args) {
+        System.out.println("Привет, "+(new Scanner(System.in)).nextLine());     
+  }
+}
+```
+
+##### Задача 
+Напишите программу, которая считывает строку, а затем выводит эту же строку на печать 3 раза в столбик.
+
+Sample Input:
+
+Java сложный, прямо капец
+Sample Output:
+
+Java сложный, прямо капец
+Java сложный, прямо капец
+Java сложный, прямо капец
+
+##### Решение 
+Всё как и в прошлых примерах, только три саута.
+```
+import java.util.Scanner;
+
+class MySolution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String a = sc.nextLine();
+        System.out.println(a);
+        System.out.println(a);
+        System.out.println(a);
+        sc.close();
+    }
+}
+```
+Альтернативное решение: 
+Через цикл for.
+```
+import java.util.Scanner;
+class Main {
+public static void main(String[] args) {
+        Scanner st = new Scanner(System.in);
+    String string = st.nextLine();
+    for (int i = 0; i < 3; i++)
+        System.out.println(string);
+  }
+}
+```
+
+##### Задача 
+
+Напишите программу, которая считывает строку, а затем выводит эту же строку на печать 2 раза в первой строке через пробел, а затем ещё два раза в столбик.
+
+Sample Input:
+
+Java forever!
+Sample Output:
+
+Java forever! Java forever!
+Java forever!
+Java forever!
+
+##### Решение 
+Через цикл for, c одним принтом до цикла.
+```
+import java.util.Scanner;
+
+class MySolution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String a = sc.nextLine();
+        System.out.print(a+" ");
+        for (int i=0; i<3;i++){
+            System.out.println(a);
+        }
+        sc.close();
+    }
+}
+```
+
+Альтернативное решение через 4 саута:
+```
+import java.util.Scanner;
+
+class MySolution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String a = sc.nextLine();
+        System.out.print(a+" ");
+        System.out.println(a);
+        System.out.println(a);
+        System.out.println(a);
+        sc.close();
+    }
+}
+```
+Альтернативное решение c if: 
+Если в цикле i==0 то (принт стринг + " ") в противном случае вывод на новой строке.
+
+```
+import java.util.Scanner;
+
+class MySolution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String userString = sc.nextLine(); // счётчик считывает слово
+        for (int i=0; i<4; i++) {
+            if (i==0) {
+                System.out.print(userString + " ");
+            } else System.out.println(userString);
+        }
+    }
+}
+```
+##### Задача 
+Напишите программу, которая считывает целое число t - температуру воздуха, и выводит фразу:
+
+Температура воздуха сегодня: t градусов.
+
+Sample Input:
+
+18
+Sample Output:
+
+Температура воздуха сегодня: 18 градусов.
+##### Решение
+Сканер, саут и в строке плюсуем sc.nextInt().
+```
+import java.util.Scanner;
+
+class fun {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Температура воздуха сегодня: "+sc.nextInt()+" градусов.");
+    }
+}
+```
+
+Альтеративное решение: 
+%d в строке выводит int tem.
+```
+import java.util.Scanner;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int tem = sc.nextInt();
+        System.out.println(String.format("Температура воздуха сегодня: %d градусов.", tem));
+    }
+}
+```
+
+##### Задача 
+
+Напишите программу, которая принимает три числа - год, месяц и день и выводит на печать фразу:
+
+DD:MM:YYYY.
+
+Проверять валидность даты не требуется.
+
+Sample Input:
+
+2021
+01
+30
+Sample Output:
+
+30:01:2021
+
+##### Решение
+Пишем 3 счётчика которые считываю инт и 2 string в соуте склеиваем их черех :.
+```
+import java.util.Scanner;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        String b = sc.next();
+        String c = sc.next();
+        System.out.println(c+":"+b+":"+a);
+    }
+}
+```
+Альтернативное решение
+Значения форматного вывода, где %2d это 2 символа инта, %02d ноль если нет второго числа. %4d 4 символа инта.
+```
+import java.util.Scanner;
+class MyClassStudyJava {
+public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    int y = sc.nextInt();
+    int m = sc.nextInt();
+    int d = sc.nextInt();
+    String str = String.format("%2d:%02d:%4d",d,m,y);
+    System.out.print(str);
+  }
+}
+```
+
+##### Задача 
+
+Давайте напишем программу-помощника, которая сообщает, сколько у Вас новых сообщений на почте.
+
+Формат ввода. На первой строке вводится имя пользователя, на второй имя помощника, на третьей - количество сообщений.
+
+Формат вывода - в соответствии с образцом.
+
+Sample Input:
+
+Илон Маск
+Рогозин
+19
+Sample Output:
+
+Привет, Илон Маск, это твой помощник Рогозин.
+У тебя 19 новых писем.
+
+##### Решение
+Сканер с 2 стрингами и интом,помещаем в шаблон текста и выводим сокращённо.
+```
+import java.util.Scanner;
+class MyClassStudyJava {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String name = sc.nextLine();
+        String name2 = sc.nextLine();
+        int age = sc.nextInt();
+
+        System.out.println(String.format("Привет, %s, это твой помощник %s.",name,name2));
+        System.out.print(String.format("У тебя %d новых писем.",age));
+    }
+}
+```
+Альтернaтивное решение: 
+более сокращённое
+```
+import java.util.Scanner;
+
+class MySolution {
+    public static void main(String[] args) {
+        Scanner rd = new Scanner(System.in);
+        System.out.print("Привет, " + rd.nextLine() + ", это твой помощник "+ rd.nextLine() +".\n" + "У тебя " + rd.nextLine() + " новых писем." + "\n");       
+    }
+}
+```
