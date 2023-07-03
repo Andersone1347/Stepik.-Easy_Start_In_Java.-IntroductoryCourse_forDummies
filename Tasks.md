@@ -595,3 +595,164 @@ class MySolution {
 }
 ```
 ---
+
+#### 2.5 Операторы
+
+##### Задача 
+
+Закончите программу таким образом, чтобы она выводила на печать целое число 5. Переменную можно назвать myVar.
+
+Sample Input:
+
+
+Sample Output:
+
+5
+```
+class MyNumber {
+    public static void main(String[] args) {
+        // put your code here
+        System.out.print(myVar);
+   }
+}
+```
+
+##### Решение
+Просто создаём переменную int myVar = 5.
+```
+class MyNumber {
+    public static void main(String[] args) {
+        int myVar = 5;
+        System.out.print(myVar);
+    }
+}
+```
+
+##### Задача 
+
+Завершите программу, которая выводит на печать сумму чисел 2 и 4. Переменную вывода можно назвать myVar.
+
+Sample Input:
+
+
+Sample Output:
+
+6
+
+```
+class MyNumber {
+    public static void main(String[] args) {
+        int x = 2; int y = 4;
+        // put your code here
+        System.out.print(myVar);
+   }
+}
+```
+
+##### Решение
+аналогично int myVar = x + y;   
+```
+class MyNumber {
+    public static void main(String[] args) {
+        int x = 2; int y = 4;
+        int myVar = x + y;
+        System.out.print(myVar);
+    }
+}
+```
+
+##### Задача 
+
+Напишите программу, которая получает два целых числа и выводит их сумму.
+
+Sample Input:
+
+8 11
+Sample Output:
+
+19
+
+##### Решение
+Создаём сканер и создаём 2 инта которые считывает сканер , в сауте плюсуем переменные.
+```
+import java.util.Scanner;
+
+class MyNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt() , b = sc.nextInt();
+        sc.close();
+        System.out.print(a+b);
+    }
+}
+```
+Альтернативное решение:
+без переменных.
+```
+import java.util.Scanner;
+class MyNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print(sc.nextInt() + sc.nextInt());
+    }
+}
+```
+
+##### Задача
+
+На вход подаются два положительных действительных числа - стороны прямоугольника. Посчитайте его площадь и периметр и выведите на отдельных строках.
+
+Sample Input:
+
+5 10
+Sample Output:
+
+50.0
+30.0
+
+##### Решение
+
+Что бы посчитать **площадь S = a * b**, **периметр P = (a + b) * 2**.
+Как мы видим **Sample Output:**(выходные данные) записаны в double. Создаём сканер считываем doble и NextDouble соответствено, создаём переменные с формулами и выводим.
+```
+import java.util.Scanner;
+
+class MyNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double a = sc.nextDouble() , b = sc.nextDouble();
+        sc.close();
+        double s = a * b, p = (a+b)*2;
+        System.out.println(s);
+        System.out.println(p);
+    }
+}
+```
+Альтернативное решение:   
+c \n.
+```
+import java.util.Scanner;
+
+class MyNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double a = sc.nextDouble(), b = sc.nextDouble();
+        System.out.print(a * b + "\n" + 2 * (a + b));
+    }
+}
+```
+
+##### Задача
+
+На вход подаётся число x0. Посчитайте значение функции y=5x(вкв)+2x+11 в точке x0 и выведите на печать.
+
+Sample Input:
+
+1
+Sample Output:
+
+18.0
+
+##### Решение
+Для того что бы возвести в степень нужно записать **Math.pow(a,b)** где **a** - это число, а **b** - это степень.
+Создали сканер считываем значение в double x, преобразовываем формулу y = 5*Math.pow(x,2)+2*x + 11. Выводим y.
