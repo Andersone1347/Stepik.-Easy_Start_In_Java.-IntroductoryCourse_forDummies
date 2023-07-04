@@ -822,3 +822,132 @@ class MyProgram {
 }
 ```
 
+##### Задача
+
+Завершите программу таким образом, чтобы она выводила на печать остаток от деления 41 на 7. Переменную вывода можно назвать myVar.
+
+Sample Input:
+
+
+Sample Output:
+
+6
+
+```
+class MyNumber {
+    public static void main(String[] args) {
+        int x = 41; int y = 7;
+        // put your code here
+        System.out.print(myVar);
+   }
+}
+```
+##### Решение
+Создаём инт myVar = x%y.
+```
+class MyNumber {
+    public static void main(String[] args) {
+        int x = 41; int y = 7;
+        int myVar = x%y;
+        System.out.print(myVar);
+    }
+}
+```
+
+##### Задача
+
+На вход подаётся целое число. Найдите его последнюю цифру.
+
+Примечание. Для вычислений может понадобиться метод Math.abs(x), возвращающий абсолютное значение (модуль) числа. Это один из множества методов, предоставляемых классом Math. Более подробно этот класс будет рассмотрен в следующих модулях.
+
+Sample Input:
+
+365
+Sample Output:
+
+5
+##### Решение
+Что бы найти последнее число, надо число, знак остаток от деления на 10, + Math.abc().
+```
+import java.util.Scanner;
+class MyNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print(Math.abs(sc.nextInt()%10));
+    }
+}
+```
+Альтернативное решение:
+sout в одну строку.
+```
+import java.util.Scanner;
+class MyNumber {
+    public static void main(String[] args) {
+        System.out.print(Math.abs(new Scanner(System.in).nextInt() % 10));
+   }
+}
+```
+##### Задача
+ООО "Круче Гугла" нанимает Java-разработчиков. Месячный бюджет на зарплату разработчиков - X, зарплата одного разработчика - Y. Выведите на печать в одной строке через пробел, какое максимальное количество разработчиков компания сможет нанять, и какое количество денег из ежемесячного бюджета останется неиспользованным.
+
+Sample Input:
+
+16 5
+Sample Output:
+
+3 1
+##### Решение
+Что бы получить первое число используем деление, а второе остаток от деления.
+```
+import java.util.Scanner;
+class MyNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt(),b = sc.nextInt();
+        System.out.print(a/b+" ");
+        System.out.print(a%b);
+    }
+}
+```
+##### Задача
+Задача повышенной сложности
+
+Реализуйте простые домашние часы.
+
+На вход подаётся число секунд, которое прошло с момента начала суток (00:00:00). Выведите текущее время в формате ЧЧ:ММ:СС.
+
+Примечание 1. Используйте 24-часовой формат.
+
+Примечание 2. Для преобразования типа int в тип String (если это понадобится) можно использовать встроенный служебный метод String.valueOf(num), который преобразует число num в строку "num".
+
+Sample Input 1:
+
+41000
+Sample Output 1:
+
+11:23:20
+Sample Input 2:
+
+3600
+Sample Output 2:
+
+01:00:00
+
+##### Решение
+Код с пояснениями формул решения.
+```
+import java.util.Scanner;
+
+class MyNumber {
+   public static void main(String[] args) {
+       Scanner t = new Scanner(System.in);
+       int sec = t.nextInt();
+       sec %=24*60*60; // проверка, что в данных секундах не было больше суток
+       int hour = sec/3600; // находим часы, просто сколько содержится 3600 секунд(час) в данных секундах
+       int min = sec%3600/60; // находим остаток секунд которые не входит в целый час, а потом делим на 60 сек(час)
+       int s=sec%60; // находим остаток от деления всех минут
+
+       System.out.print(String.format("%02d:%02d:%02d",hour,min,s));
+   }
+}
+```
