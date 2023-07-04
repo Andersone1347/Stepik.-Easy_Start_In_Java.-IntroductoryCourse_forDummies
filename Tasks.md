@@ -756,3 +756,68 @@ Sample Output:
 ##### Решение
 Для того что бы возвести в степень нужно записать **Math.pow(a,b)** где **a** - это число, а **b** - это степень.
 Создали сканер считываем значение в double x, преобразовываем формулу y = 5*Math.pow(x,2)+2*x + 11. Выводим y.
+
+```
+import java.util.Scanner;
+
+class MyNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double x = sc.nextDouble();
+        sc.close();
+        double y = 5*Math.pow(x,2)+2*x + 11;
+        System.out.print(y);
+    }
+}
+```
+
+##### Задача
+На вход подаётся целое числo **n**. Выведите в одной строке через пробел само число, его квадрат и куб.
+
+Sample Input:
+
+2
+Sample Output:
+
+2 4 8
+
+##### Решение
+Сканер, int n, соут (int)Math.pow(a,b).
+```
+import java.util.Scanner;
+class MyProgram {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(n+" "+(int)Math.pow(n,2)+" "+(int)Math.pow(n,3));
+        sc.close();
+    }
+}
+```
+##### Задача
+
+На вход подаётся три числа. Выведите на одной строке их среднее арифметическое.    
+
+Примечание. Среднее арифметическое вычисляется по формуле:    
+ a + b + c / 3(количество цифр до знака деления)
+
+Sample Input:
+
+1 3 5
+Sample Output:
+
+3.0
+
+##### Решение
+Сканер, принимаем 3 переменных double, и по формуле выводим в саут.
+```
+import java.util.Scanner;
+class MyProgram {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double a = sc.nextDouble(), b = sc.nextDouble(), c = sc.nextDouble();
+        System.out.println((a+b+c)/3);
+        sc.close();
+    }
+}
+```
