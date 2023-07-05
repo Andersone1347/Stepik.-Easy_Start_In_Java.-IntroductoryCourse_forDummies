@@ -951,3 +951,256 @@ class MyNumber {
    }
 }
 ```
+---
+#### 2.6 Инкремент
+##### Задача
+Измените программу таким образом, чтобы она выводила на печать число 11.
+
+Sample Input:
+
+
+Sample Output:
+
+11
+```
+class myNumber {
+    public static void main(String[] args) {
+        int x = 10;
+        // put your code here        
+   }
+}
+```
+##### Решение
+С помощью инкремента x++;.
+```
+class myNumber {
+    public static void main(String[] args) {
+        int x = 10;
+        x++;
+        System.out.println(x);
+    }
+}
+```
+##### Задача
+Измените программу таким образом, чтобы она выводила на печать числа 11, 12, 13. Используйте инкремент.
+
+Sample Input:
+
+
+Sample Output:
+
+11
+12
+13
+```
+class MyNumber {
+    public static void main(String[] args) {
+        int x = 10;
+        // put your code here
+    }
+}
+```
+##### Решение
+через инкремент в цикле for.
+```
+class MyNumber {
+    public static void main(String[] args) {
+        int x = 11;
+        for (int i = x; i<=13; i++){
+            System.out.println(i);
+        }
+    }
+}
+```
+Альтернатива:
+инкременте в саут
+```
+class MyNumber {
+   public static void main(String[] args) {
+       int x = 10;
+       System.out.println(++x);
+       System.out.println(++x);
+       System.out.println(++x);
+   }
+}
+
+```
+##### Задача
+Завершите программу таким образом, чтобы она выводила на печать число 13.
+
+Sample Input:
+
+
+Sample Output:
+
+13
+```
+class MyNumber {
+    public static void main(String[] args) {
+        int x = 25; int y;
+        // put your code here
+        System.out.print();
+   }
+}
+```
+##### Решение
+обьявляем у 12 и x-y в саут.
+```
+class MyNumber {
+    public static void main(String[] args) {
+        int x = 25, y=12;
+        System.out.print(x-y);
+    }
+}
+```
+Альтернатива без у.
+```
+class MyNumber {
+    public static void main(String[] args) {
+        int x = 25; int y;
+        x -= 12;
+        System.out.print(x);
+   }
+}
+```
+##### Задача
+На вход подаётся натуральное число n. Выведите на печать числа n - 1, n, n + 1 в одну строку, через пробел (см. образец).
+
+Sample Input:
+
+10
+Sample Output:
+
+9 10 11
+##### Решение
+через сканер выводим декремент, инкремент и инкремент.
+```
+import java.util.Scanner;
+class MyNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        System.out.println(--a+" "+ ++a +" "+ ++a);
+    }
+}
+```
+##### Задача
+На вход подаются два числа: x и y.
+Выведите на печать значение выражения
+z= (x+1)/(y-1) + (y+1)/(x-1)   
+Гарантируется, что x != 1 && у != 1
+##### Решение
+Сканер 2 инта, и по формуле в соут.
+```
+import java.util.Scanner;
+
+class MyNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt(), b = sc.nextInt();
+        System.out.println((a+1)/(b-1) + (b+1)/(a-1));
+    }
+}
+```
+Альтернативное решение:
+Через инкремент и декремент.
+```
+import java.util.Scanner;
+class MyNumber {
+   public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+       int x = sc.nextInt();
+       int y = sc.nextInt();
+       ++x;
+       --y;
+       System.out.print((x--/y++) + (++y/--x));
+   }
+}
+```
+
+#### 2.7 Строки
+
+##### Задача
+Завершите программу таким образом, чтобы она выводила на печать приветствие Hello, World!
+
+Sample Input:
+
+
+Sample Output:
+
+Hello, World!
+```
+class MyString {
+   public static void main(String[] args) {
+       ______ myVar;
+       myVar = 
+       System.out.print();
+   }
+}
+```
+##### Решение
+```
+class MyString {
+   public static void main(String[] args) {
+       String myVar;
+       myVar = "Hello, World!";
+       System.out.print(myVar);
+   }
+}
+```
+##### Задача
+На вход подаётся строка. Выведите её длину.
+
+Sample Input:
+
+abracadabra
+Sample Output:
+
+11
+##### Решение
+Используем length(), для того что бы найти длину строки, которую передаём через сканер.
+```
+import java.util.Scanner;
+class MyNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String a = sc.nextLine();
+        System.out.println(a.length());
+    }
+}
+```
+##### Задача
+На вход подаётся строка текста. Выведите её первый и последний элемент в одну строку через пробел. 
+
+Sample Input:
+
+abracadabra
+Sample Output:
+
+a a
+##### Решение
+Для того что бы взять первый и последний символ, используем CharAt().
+Сканер передаёт информацию в стринг а,создаём инт b и пихаем в него a.length(). Далее выводим через соут a.CharAt(0) это первая буква, и a.CharAt(b-1) это последняя.
+```
+import java.util.Scanner;
+class MyNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String a = sc.nextLine();
+        int b = a.length();
+        System.out.println(a.charAt(0)+" "+a.charAt(b-1));
+    }
+}
+```
+Альтернативное:
+более короткое
+```
+import java.util.Scanner;
+
+class MyProgram {
+    public static void main(String[] args) {
+        String str = new Scanner(System.in).nextLine();
+        System.out.print(str.charAt(0) + " " + str.charAt(str.length() - 1));
+    }
+}
+```
