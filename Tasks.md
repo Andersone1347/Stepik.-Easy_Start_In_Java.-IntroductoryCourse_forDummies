@@ -1204,3 +1204,200 @@ class MyProgram {
     }
 }
 ```
+##### Задача
+На вход подаётся строка текста, затем слово. Выведите на печать true, если слово содержится в строке, и false - если не содержится.
+
+Sample Input 1:
+
+My name is John
+name
+Sample Output 1:
+
+true
+Sample Input 2:
+
+My name is John
+john
+Sample Output 2:
+
+false
+##### Решение
+Пишем сканер на 2 стринга, и с помощью метода контеинс проверяем есть ли в первом стринге второй.
+```
+import java.util.Scanner;
+
+class myNumber {
+    public static void main(String[] args) {
+        int x = 10;
+        Scanner sc = new Scanner(System.in);
+        String a = sc.nextLine(), b =sc.nextLine();
+        System.out.println(a.contains(b));
+    }
+}
+```
+##### Задача
+На вход подаётся строка. Выведите её на печать сначала строчными, а затем прописными буквами.
+
+Sample Input:
+
+This is new string
+Sample Output:
+
+this is new string
+THIS IS NEW STRING
+##### Решение
+Сканер,стринг, в соуте ловер энд апер.
+```
+import java.util.Scanner;
+class myNumber {
+    public static void main(String[] args) {
+        int x = 10;
+        Scanner sc = new Scanner(System.in);
+        String a = sc.nextLine();
+        System.out.println(a.toLowerCase()+"\n"+a.toUpperCase());
+    }
+}
+```
+##### Задача
+На вход подаётся строка, а затем целое число n > 0. Выведите n- й символ с начала строки. 
+
+Sample Input:
+
+This is a string
+1
+Sample Output:
+
+T
+##### Решение
+Сканер, стринг и инт, соут стринг charAt() и засовываем в него инт - 1.
+```
+import java.util.Scanner;
+class myNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String a = sc.nextLine();
+        int b = sc.nextInt();
+        System.out.println(a.charAt(b-1));
+    }
+}
+```
+##### Задача
+На вход подаются две строки текста. Выведите на печать true, если строки совпадают, и false - если нет.
+
+Sample Input 1:
+
+abracadabra
+abracadabra
+Sample Output 1:
+
+true
+Sample Input 2:
+
+My name is John
+My name is Boris
+Sample Output 2:
+
+false
+##### Решение
+Сканер 2 стринга, создаём ещё один стринг который с пробелом склеивает те два, соут третий стринг \n третий стринг length()
+```
+import java.util.Scanner;
+class myNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String a = sc.nextLine(), b = sc.nextLine(), c = a+" "+b;
+        System.out.println(c+"\n"+c.length());
+    }
+}
+```
+Альтернативное короткое решение:
+```
+import java.util.Scanner;
+class is_John {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = (sc.nextLine() + " " + sc.nextLine());
+        System.out.format("%s\n%d", str, str.length());
+    }
+}
+```
+##### Задача
+На вход подаются два числа. Выведите сначала их сумму, а на следующей строке переведите числа в строковый формат и сложите в строковом формате.
+
+Sample Input:
+
+8 11
+Sample Output:
+
+19
+811
+##### Решение
+Сканер двух интов, инт с сложение их, перевод интов в стринг Integer.toString(a,b); далее вывод.
+```
+import java.util.Scanner;
+class myNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt(), b = sc.nextInt(), c = a+b;
+        Integer.toString(a,b);
+        System.out.format(c+"\n"+a+b);
+    }
+}
+```
+##### Задача
+Сравнение строк
+
+Строки, подобно числам, можно сравнивать. Это весьма полезно, если, к примеру, нужно отсортировать список каких-нибудь слов по алфавиту. Однако, если мы просто напишем:
+
+System.out.println("Python" > "Java");
+то компилятор выдаст ошибку.
+
+Чтобы сравнить слова, мы должны сделать это посимвольно. Символьный тип в Java - это char. Сравним первые буквы:
+
+System.out.println("Python".charAt(0) > "Java".charAt(0)); // true
+Такое сравнение возможно, так как char является числовым типом, а не строковым. Когда мы присваиваем переменной типа char какое-нибудь значение, на самом деле мы сохраняем в переменной число, соответствующее номеру данного символа в  символьной таблице Unicode.  Символ P (латиницей) имеет значение 80, а символ J - 74, поэтому 'P' > 'J'.
+
+Кстати, переменной char можно присвоить и численное значение. Обратите внимание, что переменные типа char заключаются в одинарные кавычки, в отличие от строк.
+
+char a, b;
+a = 80;
+b = 'J';
+System.out.println(a); // P
+System.out.println(b); // J
+В таблице Unicode представлены все возможные буквы всех языков мира, спецсимволы и масса других символов.
+
+ 
+
+На вход подаются два слова на одной строке, разделённые пробелом. Выведите true, если они идут по алфавиту, и false, если нет. Гарантируется, что слова начинаются с разных букв.
+
+Примечание. Использовать условные конструкции для решения этой задачи не нужно.
+
+Sample Input 1:
+
+task angel
+Sample Output 1:
+
+false
+Sample Input 2:
+
+moment twix
+Sample Output 2:
+
+true
+
+##### Решение
+Сканер 2 стринга, sc.next считывает до пробела, с помощью charAt(0) сравниваем по первой букве(то есть по индексу).
+
+[Таблица Символов по номеру](https://istarik.ru/blog/programmirovanie/53.html)
+```
+import java.util.Scanner;
+
+class MyProgram {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String a = sc.next();
+        String b = sc.next();
+        System.out.println(a.charAt(0)<b.charAt(0));
+    }
+}
+```
