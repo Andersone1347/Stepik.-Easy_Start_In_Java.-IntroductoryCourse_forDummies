@@ -1401,3 +1401,216 @@ class MyProgram {
     }
 }
 ```
+---
+###### 2.8 Тест
+
+##### Задача
+Завершите код, выводящий на печать сумму двух чисел. Не меняйте значение переменных.
+
+Sample Input:
+
+
+Sample Output:
+
+11
+```
+class MyNumber {
+   public static void main(String[] args) {
+       int x = 4; 
+           y = 7;
+       int sumNum = x   y
+       System.out.print();
+   }
+}
+```
+##### Решение
+Дописал недостающие элементы.
+```
+class MyNumber {
+   public static void main(String[] args) {
+       int x = 4; 
+          int y = 7;
+       int sumNum = x + y;
+       System.out.print(sumNum);
+   }
+}
+```
+##### Задача
+Завершите программу таким образом, чтобы она вывела на печать значение переменной name. Не меняйте значение переменной.
+
+Sample Input:
+
+
+Sample Output:
+
+Максим
+```
+class MyString {
+   public static void main(String[] args) {
+           name;
+       name = "Максим"
+       out.print();
+   }
+}
+```
+##### Решение
+Дописал недостающие элементы.
+```
+class MyString {
+    public static void main(String[] args) {
+
+        String name = "Максим";
+        System.out.print(name);
+    }
+}
+```
+##### Задача
+Рептилоиды с планеты Нибиру измеряют время исключительно в секундах. Помогите рептилоидам разобраться, какой промежуток времени в секундах проходит за n земных дней.
+
+ 
+
+На вход программа получает n - количество дней.
+
+На выходе программа должна вывести количество секунд в этом количестве дней.
+
+Sample Input:
+
+12
+Sample Output:
+
+1036800
+
+##### Решение
+Сканер принимает дни в инт, в сауте переводит в секунды.
+Расчет количества секунд в сутках 60 секунд * 60 минут * 24 часа= **86 400** секунд.
+```
+import java.util.Scanner;
+
+class MyString {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print(sc.nextInt()*86400);
+    }
+}
+```
+##### Задача
+Напишите программу, находящую корни квадратного уравнения  ax(вкв)+bx+c=0
+
+На вход подаются целые числа a, b и c. Выведите сумму и произведение корней в одной строке, через пробел.
+
+Примечание 1. Гарантируется, что существует два различных корня.
+
+Примечание 2. Можно воспользоваться, к примеру, [теоремой Виета](https://ru.wikipedia.org/wiki/Формулы_Виета).
+
+Sample Input:
+
+1 2 -4
+Sample Output:
+
+-2.0 -4.0
+
+##### Решение
+Сканер 3 инта, облегченная формула суммы (-1*b)/a, и произведения c/a.
+```
+import java.util.Scanner;
+
+class MyString {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double a = sc.nextDouble(), b = sc.nextDouble(), c = sc.nextDouble();
+        double sum = (-1*b)/a;
+        double pro = c/a;
+        System.out.println(sum +" "+ pro);
+    }
+}
+```
+##### Задача
+На вход подаётся число N - номер года по григорианскому календарю. Посчитайте, сколько високосных лет прошло, начиная с 1 года н. э. Будем считать, что григорианский календарь действовал всё это время).
+
+Примечание 1. Правила определения високосного года:
+
+год, номер которого кратен 400, — високосный;
+остальные годы, номер которых кратен 100, — невисокосные (например, годы 1700, 1800, 1900, 2100, 2200, 2300);
+остальные годы, номер которых кратен 4, — високосные.
+Примечание 2. Для решения этой задачи условные конструкции не требуются.
+
+Sample Input 1:
+
+1
+Sample Output 1:
+
+0
+Sample Input 2:
+
+10
+Sample Output 2:
+
+2
+##### Решение
+Сканер инт, формула подчёта ((a/4 ) - (a/100) + (a/400)).
+```
+import java.util.Scanner;
+class MyProgram {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b= ((a/4 ) - (a/100) + (a/400));
+        System.out.println(b);
+    }
+}
+```
+Альтернатива:     
+более подробное
+```
+import java.util.Scanner;
+class MyProgram {
+    public static void main(String[] args) {
+        
+        int n;
+        Scanner sc = new Scanner(System.in);
+        
+        n = sc.nextInt();
+        sc.close();         // зкрываем входной поток дабы избежать утечки памяти!
+        
+        // n/100 - год(а) которые не входять в календарь
+        // n/400 - год(а) которые входять в календарь
+        // n/4 - год(а) которые входять в календарь
+        
+        System.out.println(n/400 + n/4 - n/100);
+        
+    }
+}
+```
+##### Задача
+На вход подаются целые числа x и y. Выведите их сумму и разность в формате, соответствующем примеру.
+
+Sample Input:
+
+10 5
+Sample Output:
+
+Сложение: 10 + 5 = 15
+Вычитание: 10 - 5 = 5
+
+##### Решение
+Сканер на 2 инта, вывод по шаблону.
+```
+import java.util.Scanner;
+
+class MyString {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt(), b = sc.nextInt();
+        System.out.println("Сложение: "+a+" + "+b+" = "+(a+b));
+        System.out.println("Вычитание: "+a+" - "+b+" = "+(a-b));
+    }}
+```
+
+
+
+---
+### 3  Условные конструкции
+
+#### 3.1 Условные конструкции
+
+##### Задача 
