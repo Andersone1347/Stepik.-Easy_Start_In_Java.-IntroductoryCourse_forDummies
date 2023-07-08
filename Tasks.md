@@ -1645,3 +1645,148 @@ class Example {
         }
     }
 ```
+##### Задача
+Два индийских программиста, Махатма и Джавахарлал, решили выяснить, кто из них быстрее пишет код. Напишите программу, которая поможет им выяснить это.
+
+На вход подаются два целых числа в одной строке через пробел. Если первое число больше второго, необходимо вывести на печать "Махатма", если второе - "Джавахарлал". Гарантируется, что числа больше нуля и различны.
+
+Sample Input:
+
+8 11
+Sample Output:
+
+Джавахарлал
+
+##### Решение
+Сканер, 2 инта, через иф.
+```
+import java.util.Scanner;
+
+class MyString {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt(), b = sc.nextInt();
+        if( a>b ){
+            System.out.println("Махатма");
+        } else {
+            System.out.println("Джавахарлал");
+        }
+    }}
+```
+##### Задача
+Два индийских программиста, Махатма и Джавахарлал, решили выяснить, чей код длиннее. Напишите программу, которая поможет им выяснить это. 
+
+На вход подаются две строки текста. Если первая строка длиннее второй, необходимо вывести на печать "Махатма", если наоборот - "Джавахарлал". Гарантируется, что строки имеют разную длину.
+
+Sample Input:
+
+abracadabra
+The world is mine
+Sample Output:
+
+Джавахарлал
+##### Решение
+Всё как в прошлом задание, только инты поменяли на стринги и сравниваем ленг.
+```
+import java.util.Scanner;
+
+class MyString {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String a = sc.nextLine(), b = sc.nextLine();
+        if( a.length()>b.length() ){
+            System.out.println("Махатма");
+        } else {
+            System.out.println("Джавахарлал");
+        }
+    }}
+```
+##### Задача
+На первой строке подаётся пароль, хранящийся в базе данных, на второй - пароль, введённый пользователем.
+
+Выведите на печать фразу "Access is granted", если пользователь ввёл верный пароль, и "Access is denied" - если нет. 
+
+Sample Input:
+
+111111
+111111
+Sample Output:
+
+Access is granted
+##### Решение
+В ифе через экалс.
+```
+import java.util.Scanner;
+class MyString {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String a = sc.nextLine(), b = sc.nextLine();
+        if( a.equals(b) ){
+            System.out.println("Access is granted");
+        } else {
+            System.out.println("Access is denied");
+        }
+    }}
+```
+##### Задача
+Выведите на печать наибольшее из трёх целых чисел.
+
+Sample Input:
+
+5 6 12
+Sample Output:
+
+12
+##### Решение
+С помощью if else сравниваем каждую переменную.
+```
+import java.util.Scanner;
+class MyString {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt(), b = sc.nextInt(), c = sc.nextInt();
+        if( a>=b && a>=c ) {
+            System.out.println(a);
+        } else if (b>=a && b>=c) {
+            System.out.println(b);
+        } else if (c>=a && c>=b) {
+            System.out.println(c);
+        }
+    }}
+```
+Альтернативное решение:
+Math.max
+```
+import java.util.Scanner;
+class MyProg {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print(Math.max(in.nextInt(), Math.max(in.nextInt(), in.nextInt())));
+    }
+}
+```
+Альтернативное решение:
+Переназначением
+```
+import java.util.Scanner;
+class MyProg {
+	public static void main(String[] args) {
+		Scanner consol = new Scanner(System.in);
+        int a = consol.nextInt(), b = consol.nextInt(), c = consol.nextInt();
+        if (a < b) a = b;
+        if (a < c) a = c;
+        System.out.println(a);
+	}
+}
+```
+##### Задача
+В 1997 году во время боксёрского боя за звание чемпиона мира Майк Тайсон откусил ухо Эвандеру Холифилду (не целиком). Рефери нужно определить, как поступить. Если откушенный кусок уха меньше норматива, бой продолжится. Если нет - Майк Тайсон должен быть дисквалифицирован, и чемпионом становится Холифилд.
+
+На вход подаются два числа -  масса откушенного куска уха и норматив. Выведите "Бой продолжается!" или "Холифилд - чемпион!" в зависимости от выполнения условия.
+
+Sample Input:
+
+5 10
+Sample Output:
+
+Бой продолжается!
