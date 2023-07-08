@@ -1614,3 +1614,34 @@ class MyString {
 #### 3.1 Условные конструкции
 
 ##### Задача 
+
+Исправьте ошибки в коде таким образом, чтобы код выводил на печать слово "YES" (без кавычек), если значение переменной х равно 5.
+
+Sample Input:
+
+
+Sample Output:
+
+YES
+```
+class Example {
+	public static void main(String[] args) {
+		int x = 5;
+        if x = 5 {
+            System.println("YEP")
+
+        }	
+}
+```
+##### Решение
+В ифе отсувствуют круглые скобки и одна фигурная, в выводе out, и сам вывод одна буква.
+```
+class Example {
+    public static void main(String[] args) {
+        int x = 5;
+        if ( x == 5) {
+            System.out.println("YES");
+        }
+        }
+    }
+```
