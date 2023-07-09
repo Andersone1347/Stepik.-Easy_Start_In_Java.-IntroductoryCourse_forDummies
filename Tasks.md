@@ -1138,7 +1138,7 @@ class MyString {
    }
 }
 ```
-##### Решение
+##### Решение 
 ```
 class MyString {
    public static void main(String[] args) {
@@ -1792,4 +1792,143 @@ Sample Output:
 Бой продолжается!
 
 ##### Решение
-На вход подаються числа с плавующий точкой в степик  
+На вход подаются два числа с плавающей точкой, если первое больше или равно второму то Холифилд - чемпион!.
+```
+import java.util.Scanner;
+class MyProg {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double a = sc.nextDouble(), b = sc.nextDouble();
+        System.out.println((a>=b)? "Холифилд - чемпион!" : "Бой продолжается!");
+    }
+}
+```
+##### Задача
+На вход подаётся целое число n. Выведите "YES", если можно построить правильный многогранник из правильных плоских n-угольников, в противном случае - "NO".
+
+Sample Input:
+
+3
+Sample Output:
+
+YES
+##### Решение
+Сканер, int == 3 || 4 || 5 Yes, else No.
+```
+import java.util.Scanner;
+
+class MyProgram {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+       System.out.println((a==3 || a==4 || a==5) ? "YES" : "NO");
+    }
+}
+```
+##### Задача
+На вход подаётся целое число. Выведите "YES", если оно нацело делится на 7, и "NO" - если нет.
+
+Sample Input 1:
+
+7
+Sample Output 1:
+
+YES
+Sample Input 2:
+
+10
+Sample Output 2:
+
+NO
+##### Решение
+На вход подаётся целое число. Используем деление по остатку на 7, равное 0.
+```
+import java.util.Scanner;
+class MyProg {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        System.out.println((a%7 == 0)? "YES" : "NO");
+    }
+}
+```
+##### Задача
+На вход подаётся целое число. Выведите "YES", если оно нацело делится на 7, но не делится на 5, иначе -  "NO".
+
+Sample Input:
+
+7
+Sample Output:
+
+YES
+##### Решение
+Всё тоже самое, только добавляем и не делиться на 5. Для проверки правильности проверьте число 35, должно быть нет.
+```
+import java.util.Scanner;
+class MyProg {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        System.out.println((a%7 == 0 && a%5 !=0) ? "YES" : "NO");
+    }
+}
+```
+
+---
+
+#### 3.2 Логические конструкции
+
+##### Задача
+Исправьте программу таким образом, чтобы она выводила на печать приветствие "Добро пожаловать!".
+
+Sample Input:
+
+
+Sample Output:
+
+Добро пожаловать!
+```
+class Main {
+	public static void main(String[] args) {
+		int age = 23;
+        tasks = 4000;
+        if age > 21 & tasks > 500 {
+            System.out.print("Добро пожаловать!");
+        }
+	}
+}
+```
+##### Решение
+Переменную tasks переводим в int, условие if засовываем в скобки.
+```
+class Main {
+    public static void main(String[] args) {
+        int age = 23 , tasks = 4000;
+        if (age > 21 & tasks > 500) {
+            System.out.print("Добро пожаловать!");
+        }
+    }
+}
+```
+##### Задача
+Давайте убедимся, что мы верно разобрали логическое выражение из предыдущего шага. Просто запустите программу.
+
+Sample Input:
+
+Sample Output:
+
+true
+```
+class Test {
+    public static void main(String[] args) {
+        boolean a = true;
+        boolean b = false;
+        int c = 30;
+        int q = 5;
+        boolean r = (a || b && c >= 25) || (c < 20 * q) && !(q == 5);
+        System.out.println(r);
+    }
+}
+```
+##### Решение
+
