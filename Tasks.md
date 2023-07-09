@@ -2182,5 +2182,204 @@ class Example {
 ```
 
 ##### Решение
+В иф скобки и > на < меняем, в вывод аут и скобки.
+```
+class Example {
+    public static void main(String[] args) {
+        int x = 3;
+        if (x < 15) {
+            if (x <= 25) {
+                System.out.println("Ура, заработало!!!");
+            }
+        }
+    }
+}
+```
+##### Задача
+На вход подаётся три целых числа. Выведите среднее из них (т.е. не минимальное и не максимальное).
+
+Sample Input:
+
+5 10 11
+Sample Output:
+
+10
+
+##### Решение
+Сканер 3 инта, и перебираем все возможные комбинации.
+```
+import java.util.Scanner;
+
+class Example {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt(), b = sc.nextInt(), c = sc.nextInt();
+        if ((a >= b && a <= c) || (a <= b && a >= c)){
+            System.out.println(a);
+        }else if((b >= a && b <= c) || (b <= a && b >= c)){
+            System.out.println(b);
+        }else  if ((c >= a && c <= b) || (c <= a && c >= b)){
+            System.out.println(c);
+        }
+    }
+}
+```
+Альтернативное решение: 
+Заносим в массив и через метод sort.
+```
+import java.util.Scanner;
+import java.util.Arrays;
+class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        int[] numb = {s.nextInt(), s.nextInt(), s.nextInt()};
+        Arrays.sort(numb);
+        System.out.println(numb[1]);
+    }
+}
+```
+
+##### Задача
+ООО "Круче Гугла" наняло трёх разработчиков. Внезапно разработчики узнали, что их зарплаты различаются. Разработчики решили объявить забастовку, если разница максимальной и минимальной зарплаты превысит определённый уровень. Определите, грозит ли ООО "Круче Гугла" забастовка.
+
+Формат ввода:
+
+В первой строке - зарплаты разработчиков через пробел, три целых числа.
+
+Во второй строке - разница, при превышении которой будет объявлена забастовка.
+
+Формат вывода:
+
+"Ура, бастуем!" - если критический уровень превышен;
+
+"За работу, Солнце ещё высоко" - если критический уровень не превышен.
+
+Sample Input:
+
+300 400 500
+100
+Sample Output:
+
+Ура, бастуем!
+
+##### Решение
+Сканер 3 инта , матх макс и мин , if.
+```
+import java.util.Scanner;
+
+class Example {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+
+        int d = sc.nextInt();
+
+        int e = (Math.max(Math.max(a, b),c)) - (Math.min(Math.min(a, b),c));
+
+        if (e>d) {
+            System.out.println("Ура, бастуем!");
+        }else {
+            System.out.println("За работу, Солнце ещё высоко");
+        }
 
 
+    }
+}
+``` 
+##### Задача
+Задача повышенной сложности
+
+На числовой прямой даны два отрезка, заданных парами целых чисел: a1,b1 b a2,b2. Напишите программу, которая находит их пересечение.
+
+Если пересечение - отрезок, необходимо вывести два числа (границы отрезка), если единственная точка - единственное число (точку), если пересечения нет - вывести фразу "Пересечения нет" (без кавычек). 
+
+Sample Input 1:
+
+2 5
+6 10
+Sample Output 1:
+
+Пересечения нет
+Sample Input 2:
+
+2 5
+4 10
+Sample Output 2:
+
+4 5
+##### Решение
+![alt](/img/%D1%80%D0%B8%D1%81%D1%83%D0%BD%D0%BE%D0%BA%20a1-b1%2Ca2-b2.jpg "a1-b1, a2-b2")
+сканер, 4 инта, (a1,b1) и (a2,b2) по картинке сравниваем различные вариации пересечений.
+```
+import java.util.Scanner;
+
+class Example {
+    public static void main(String[] args) {
+        Scanner c = new Scanner(System.in);
+        int a1 = c.nextInt(), b1 = c.nextInt(), a2 = c.nextInt(),  b2 = c.nextInt();
+
+
+        if (((a2 - b1) * (b2 - a1)) <= 0) {
+            if (((a2 - b1) * (b2 - a1)) == 0) { // d[jl1
+            if (a2 == b1) {
+                System.out.println(b1);
+            }
+            if (b2 == a1) {
+                System.out.println(b2);
+            }
+        }
+        if (a1 >= a2 && b1 <= b2) { // вхол 2
+            System.out.println(a1 + " " + b1);
+        }
+
+        if (a2 > a1 && b2 < b1) { // вход 3
+            System.out.println(a2 + " " + b2);
+        }
+            if (a1 < a2 && a2 < b1 && b1 < b2) { // вход 4
+                System.out.println(a2 + " " + b1);
+            }
+            if (a2 < a1 && a1 < b2 && b2 < b1) { // вход 5
+                System.out.println(a1 + " " + b2);
+            }
+    }else {
+            System.out.println("Пересечения нет");
+        }
+}}
+```
+Альтернативное решение:        
+через Math.max и Math.min  .
+```
+import java.util.Scanner;
+
+class MyProgram {
+    public static void main(String[] args) {
+    Scanner in = new Scanner(System.in);
+        int a1 = in.nextInt();
+        int b1 = in.nextInt();
+        int a2 = in.nextInt();
+        int b2 = in.nextInt();
+        int a = Math.max(a1, a2);
+        int b = Math.min(b1, b2);
+         if (b < a) {
+             System.out.println("Пересечения нет");
+         } else if (b == a) {
+             System.out.println(b);
+         } else {
+             System.out.println(a+" "+b);
+         }
+    }
+}
+
+```
+##### Задача
+На вход подаётся три целых числа. Выведите максимальное чётное из них. Если чётных чисел нет, выведите "Чётных чисел нет".
+
+Sample Input:
+
+5 10 15
+Sample Output:
+
+10
+##### Решение
