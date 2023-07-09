@@ -1931,4 +1931,256 @@ class Test {
 }
 ```
 ##### Решение
+Выражение оставляем без изменений оно верно.        
+Аргументация :  
+        1) Решаем сначала все, что в скобках.Начнем с выражения слева: (a || b && c >= 25)
+        2) т.к арифметические операции и операции сравнения выполняется до логических то рассмотрим для начала 
+        c >= 25 (true), т.к 30 >= 25
+        3) следующий этапом - посчитаем b && c (false), потому что "логическое и" подразумевает что b = false и с = true
+        4) и последний этап в левом выражении a || false - результат вычисления будет TRUE
+        5) результат выполнения выражения слева: (a || b && c >= 25) = true;
+        6) перейдем к вычислениям в правом выражении: (с < 20 * q) && !(q == 5);
+        7) 20 * q = 20 * 5 = 100, отсюда с < 100 или 30 < 100 (это истинное выражение, значит true)
+        8)!(q == 5), отсюда !(5 == 5) (это ложное выражение, значит false)
+        9) мы получаем (true) && (false) (результатом вычисления будет FALSE)
+        10) теперь вычислим результат последней операции: TRUE || FALSE (результат вычисления будет true, что и видим в выводе)
+
+##### Задача
+На вход подаётся строка, а затем - одна буква. Если строка содержит эту букву или строка длиннее 20 символов, выведите "YES", в противном случае - "NO".
+
+Sample Input:
+
+This is a string
+a
+Sample Output:
+
+YES
+##### Решение
+Сканер, 2 стринга, контаинс или ленг.
+```
+import java.util.Scanner;
+class MyProg {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String a = sc.nextLine(), b = sc.nextLine();
+        System.out.println((a.contains(b) || a.length() >= 20) ? "YES" : "NO");
+    }
+}
+```
+##### Задача
+На вход подаются два целых числа.  Выведите на печать true, если их сумма чётна, а произведение - нечётно, и false - в противном случае.
+
+Sample Input:
+
+5 3
+Sample Output:
+
+true
+##### Решение
+Сканер, два инта, сумма интов и проверка на чётность(%2 == 0) && произведение(умножение) интов и нечётность (% 2 !=0)
+```
+import java.util.Scanner;
+class MyProg {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt(), b = sc.nextInt();
+        System.out.println(((a+b) % 2 ==0 && (a*b) % 2 !=0));
+    }
+}
+```
+##### Задача
+На вход подаются три целых числа. Выведите true, если среди них есть ровно два чётных, и false - если нет.
+
+Sample Input:
+
+4 6 7
+Sample Output:
+
+true
+##### Решение
+Сравнил все возможные варианты, и написал условие при 3 чётных интах false.
+```
+import java.util.Scanner;
+class MyProg {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt(), b = sc.nextInt(), c = sc.nextInt();
+
+        boolean d = ((a % 2 == 0) && (b % 2 == 0) || (a % 2 == 0) && (c % 2 == 0) || (b % 2 == 0) && (a % 2 == 0) || (b % 2 == 0) && (c % 2 == 0) || (c % 2 == 0) && (a % 2 == 0) || (c % 2 == 0) && (b % 2 == 0));
+
+        if (a % 2 == 0 && b % 2 == 0 && c % 2 == 0){
+            System.out.println("false");
+        } else {
+            System.out.println(d);
+        }
+    }
+}
+```
+Альтернативное решение:    
+гениальный подход.
+```
+import java.util.Scanner;
+class MyProgram {
+	public static void main(String[] args) {
+	  Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+        boolean a1 = (a%2+b%2+c%2)==1;
+            System.out.println(a1);   
+	}
+}
+```
+##### Задача
+На вход подаются целых три числа - день, месяц и год (по григорианскому календарю). Выведите true, если эти числа составляют валидную дату, и false - в противном случае.
+
+Примечание.
+
+Не все года одинаковые.
+
+ 
+
+Лирическое отступление. 
+
+В комментариях к этой задаче (и ко многим другим) студенты высказываются, что условия сформулированы недостаточно чётко.  Дескать, напишите прямо, какие случаи нужно проверить - и проверим. 
+
+К сожалению, в реальной практике абсолютно чёткие ТЗ (технические задания) Вы будете получать с периодичностью примерно никогда. И это касается не только программирования, но и других сфер. Вам придётся самостоятельно устанавливать границы - где работает код, где нет, каковы его границы и как он работает с заданными критериями. Более того, недалёк тот день, когда для написания кода по абсолютно точному ТЗ люди будут не нужны - это будет делать искусственный интеллект.
+
+Поэтому, крайне важно не бросаться сразу писать код. Наоборот, сядьте и спланируйте - что, где, почему, как. Это позволит избежать стадии вырывания волос на голове с криками "НУ ПОЧЕМУ НЕ РАБОТАЕТ?!!!".
+
+ Именно так работают успешные программисты: сначала проектирование кода, затем его реализация. Привыкайте к этому сразу же. 
+ ##### Решение
+ ```
+import java.util.Scanner;
+class Circle {
+    public static void main(String[] args) {
+        Scanner a = new Scanner(System.in);
+        int day = a.nextInt();
+        int mon = a.nextInt();
+        int year = a.nextInt();
+
+        if ((day >= 1 && day <= 31) && (mon >= 1 && mon <= 12) && year >= 0) {
+            if (day <= 29 && mon == 2 && (year % 400 == 0 || year % 4 == 0 && year % 100 != 0)) {
+                System.out.println("true");
+            } else if (mon == 1 || mon == 3 || mon == 5 || mon == 7 || mon == 8 || mon == 10 || mon == 12 && (day >= 1 && day <= 31)) {
+                System.out.println("true");
+            } else if ((mon == 4 || mon == 6 || mon == 9 || mon == 11) && (day >= 1 && day <= 30)) {
+                System.out.println("true");
+            }  else if (day <= 28 && mon == 2 && (year % 4 != 0 || (year % 100 == 0 && year % 400 !=0))) {
+                System.out.println("true");
+            } else System.out.println("false");
+        } else {
+            System.out.println("false");
+        }
+    }
+}
+ ```
+ Альтернативное решение:     
+ с пояснениями
+ ```
+import java.util.Scanner;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int day = sc.nextInt();
+        int mounth = sc.nextInt();
+        int year = sc.nextInt();
+        boolean visyear = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);    // вычисляем високосные года
+        boolean rightmounth = mounth > 0 && mounth <= 12;                     // вычисление правильный месяц
+        boolean rightday = day > 0 && day <= 31;                              // вычисление правильный день
+        boolean rightyear = year > 0;                                         // вычисление правильный гож
+        boolean smallmounth = (mounth == 4 || mounth == 6 || mounth == 9 || mounth == 11); // вычисление маленьких месяцев в которых должно быть меньше 30 дней
+        if (rightyear && rightday && rightmounth) {                         // если (год, день и месяц имеют значение true) то
+            if (visyear) {                                                  // если (год високосный) то
+                if(mounth == 2) {                                           // если (месяц равен 2) то
+                    System.out.println(day <= 29);                          // выводим на экран false или true в зависимости от правильности утверждения
+                }
+            } else {                                                        // в других случаях (то есть когда год високосный)     
+                if (mounth == 2) {                    
+                    System.out.println(day <= 28);                          // выводим на экран false или true в зависимости от правильности утверждения
+                }
+            }
+            if (smallmounth) {                                              // если (указан маленький месяц) то     
+                System.out.println(day <= 30);                              // выводим на экран false или true в зависимости от правильности утверждения
+            } else if (!smallmounth && mounth !=2) {System.out.println("true");} // также если (указан не маленький месяц и значение месяца не равно 2) то выводим "true"
+
+
+
+        } else {System.out.println("false");}                                 // во всех остальных случаях false
+    }
+}
+ ```
+##### Задача
+ На вход подаются три слова на одной строке, разделённые пробелом. Выведите их в алфавитном порядке. Гарантируется, что слова начинаются с разных букв.
+
+Sample Input:
+
+Python Java C++
+Sample Output:
+
+C++
+Java
+Python
+##### Решение
+Сканер 3 стринга, узнаём первые символы стрингов и переводим в чары, сравниваем все возможные варианты и пишем результат.
+```
+import java.util.Scanner;
+class MyProg {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str1 = sc.next(), str2 = sc.next(), str3 = sc.next();
+        char a = str1.charAt(0), b = str2.charAt(0), c = str3.charAt(0);
+        if ((a < b) && (a < c) && (b < c)) {System.out.println(str1 +"\n" + str2 + "\n" + str3);}
+        if ((b < a) && (a < c) && (b < c)) {System.out.println(str2 + "\n" + str1 + "\n" + str3);}
+        if ((c < a) && (a < b) && (c < b)) {System.out.println(str3 + "\n" + str1 + "\n" + str2);}
+        if ((a < b) && (a < c) && (c < b)) {System.out.println(str1 + "\n" + str3 + "\n" + str2);}
+        if ((b < c) && (b < a) && (c < a)) {System.out.println(str2 + "\n" + str3 + "\n" + str1);}
+        if ((c < b) && (c < a) && (b < a)) {System.out.println(str3 + "\n" + str2 + "\n" + str1);}
+    }
+}
+```
+Альтернативное решение:            
+Пузырьком с пояснением 
+```
+import java.util.Scanner;
+class Program {
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        String a = scn.next(), b = scn.next(), c = scn.next();
+        String n; // n - вспомогательная строка
+        if (a.charAt(0)>b.charAt(0)) {n = a; a = b; b = n;} // сравниваем a и b
+        if (a.charAt(0)>c.charAt(0)) {n = a; a = c; c = n;} // сравниваем a и c
+        if (b.charAt(0)>c.charAt(0)) {n = b; b = c; c = n;} // сравниваем b и c
+        System.out.println(a+"\n"+b+"\n"+c);
+        scn.close();
+    }
+}
+```
+---
+#### 3.3 Вложенные условные конструкции
+
+##### Задача
+Исправьте программу таким образом, чтобы она вывела на печать "Ура, заработало!!!" (без кавычек).
+
+Sample Input:
+
+
+Sample Output:
+
+Ура, заработало!!!
+```
+class Example {
+	public static void main(String[] args) {
+		int x = 3;
+        if x > 15 {
+            if (x <= 25) {
+                System.out["Ура, заработало!!!"]
+            }
+        }
+    }
+}
+```
+
+##### Решение
+
 
