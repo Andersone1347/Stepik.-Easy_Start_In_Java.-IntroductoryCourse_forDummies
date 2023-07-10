@@ -2383,3 +2383,558 @@ Sample Output:
 
 10
 ##### Решение
+Сканер 3 инта, проверка на 3 не чётных числа, если 2 то выводим через Мath.max.
+```
+import java.util.Scanner;
+public class Main {
+    private final static Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        int a = scanner.nextInt();
+        int b = scanner.nextInt();
+        int c = scanner.nextInt();
+        if (a % 2 != 0 && b % 2 != 0 && c % 2 != 0) {
+            System.out.println("Чётных чисел нет");
+        } else if (a % 2 == 0 && b % 2 != 0 && c % 2 != 0) {
+            System.out.println(a);
+        } else if (a % 2 != 0 && b % 2 == 0 && c % 2 != 0) {
+            System.out.println(b);
+        } else if (a % 2 != 0 && b % 2 != 0 && c % 2 == 0) {
+            System.out.println(c);
+        } else if (a % 2 == 0 && b % 2 != 0 && c % 2 == 0) {
+            System.out.println(Math.max(a,c));
+        } else if (a % 2 != 0 && b % 2 == 0 && c % 2 == 0) {
+            System.out.println(Math.max(b, c));
+        } else if (a % 2 == 0 && b % 2 == 0 && c % 2 != 0) { System.out.println(Math.max(a,b)); 
+        } else {
+            System.out.println(Math.max(Math.max(a,b),c));
+        } 
+    }
+}
+```
+---
+#### 3.4 Оператор Switch
+
+##### Задача 
+Доработайте программу так, чтобы она вывела на печать фразу We're the champions! 
+
+Sample Input:
+
+Sample Output:
+
+We're the champions!
+```
+class MyNumber {
+    public static void main(String[] args) {
+        int x = 10; 
+        ______ (_) _    
+
+            case 10:
+                System.out.print("We're the champions!");
+
+            def____
+                System.out.print("We're lost ((");
+        }           
+    }
+}
+```
+##### Решение
+Switch (x) {}, закрыть кейс break;, default: (любое другое значение).
+```
+class MyNumber {
+    public static void main(String[] args) {
+        int x = 10;
+        switch (x) {
+
+            case 10:
+                System.out.print("We're the champions!");
+                break;
+
+        default:
+        System.out.print("We're lost ((");
+    }
+}
+}
+```
+##### Задача 
+Реализуйте простой справочник по командам Java. На вход подаётся команда, по которой необходима справка (ограничимся тремя командами). В соответствии с этим выведите текст:
+
+Ввод: System.out.println()
+
+Вывод: Это команда вывода на печать
+
+Ввод: if
+
+Вывод: Это условный оператор
+
+Ввод: else
+
+Вывод: Это альтернативная конструкция условного оператора 
+
+
+Если введено что-либо другое, выведите фразу "Раздел в разработке" (без кавычек).
+
+Sample Input:
+
+System.out.println()
+Sample Output:
+
+Это команда вывода на печать
+##### Решение
+Сканер, в условие свитч, стринг а, и в каждом кейсе скопипастили условия задания. 
+```
+import java.util.Scanner;
+
+class MyNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String a = sc.nextLine();
+        switch (a) {
+
+            case "System.out.println()":
+                System.out.print("Это команда вывода на печать");
+                break;
+
+            case "if":
+                System.out.print("Это условный оператор");
+                break;
+
+            case "else":
+                System.out.print("Это альтернативная конструкция условного оператора");
+                break;
+                
+        default:
+        System.out.print("Раздел в разработке");
+    }
+}
+}
+```
+---
+#### 3.5 Тест
+
+##### Задача 
+
+На вход подаётся  целое число. Выведите "YES", если введено трёхзначное положительное число, а в противном случае - "NO".  
+
+Sample Input 1:
+
+125
+Sample Output 1:
+
+YES
+Sample Input 2:
+
+1
+Sample Output 2:
+
+NO
+##### Решение
+Cканер int, через тернарный, если >= 10 yes, else no.
+```
+import java.util.Scanner;
+
+class MyTest {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        System.out.println((a >=100 && a <= 999)?"YES":"NO");
+    }
+}
+```
+Альтернативное через ленг и свитч:
+```
+import java.util.Scanner;
+class MyProggg {
+   public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+       String a=sc.nextLine();
+        sc.close();
+       switch (a.length()){
+           case 3:
+               System.out.println ("YES");
+               break;
+           default: System.out.println ("NO");
+         }
+    
+   }
+}
+```
+
+##### Задача 
+На вход подается строка, а затем слово. Выведите true, если слово содержится в строке, и false - если нет, без учёта регистров.
+
+Sample Input:
+
+abracadabra
+Cadabra
+Sample Output:
+
+true
+##### Решение
+Переводи в нижний регистр оба стринга и контаинс.
+```
+import java.util.Scanner;
+class MyTest {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String a = sc.nextLine(), b = sc.nextLine();
+        System.out.println(a.toLowerCase().contains(b.toLowerCase()));
+    }
+}
+```
+##### Задача 
+На вход подаётся целое трёхзначное число, а затем цифра. Выведите true, если эта цифра является средней в числе (разряд десятков), и false - если нет. Если введённое число не является трёхзначным, выведите "error".
+
+Sample Input:
+
+123 2
+Sample Output:
+
+true
+##### Решение
+Считываем 2 числа, переводим в стринг, переводи в чар средний символ первого стринга и второй стринг. Далее проверка на то что 1 число от 100 до 999, и проверка на схожесть чаров.
+```
+import java.util.*;
+class Example1{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int a=sc.nextInt();
+        int b=sc.nextInt();
+        a = Math.abs(a);
+        b = Math.abs(b);
+        String num1=Integer.toString(a);
+        String num2=Integer.toString(b);
+        char c=num1.charAt(1);
+        char d=num2.charAt(0);
+        if(a > 99 && a < 1000){
+            if (c == d){
+                System.out.println("true");
+            }
+            else{
+                System.out.println("false");
+            }
+        }
+        else{
+            System.out.println("error");
+        }
+    }
+}
+```
+Альтернатива:   
+без стрингов и чар, более матиматически верное.
+```
+import java.util.Scanner;
+
+class Example {
+	public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int num = Math.abs(sc.nextInt()), x = Math.abs(sc.nextInt());
+        sc.close();
+        
+        int result = (num / 10) % 10;
+        
+        if(num > 99 && num < 1000) {
+            System.out.println(x == result ? "true" : "false");
+        }else {
+            System.out.println("error");
+        }
+    }
+}
+```
+##### Задача 
+На вход подаётся два числа - a и b. Выведите знак отношения между числами: один символ "<", если a < b, ">", если a > b и "=", если a=b. 
+
+Sample Input 1:
+
+8 11
+Sample Output 1:
+
+<
+Sample Input 2:
+
+10 5
+Sample Output 2:
+\>
+##### Решение
+doble, else if.
+```
+import java.util.Scanner;
+class MyTest {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double a = sc.nextDouble(), b = sc.nextDouble();
+        if (a<b){
+            System.out.println("<");
+        } else if (a>b) {
+            System.out.println(">");
+        } else if (a==b){
+            System.out.println("=");
+        }
+    }
+}
+```
+Альтернативное решение:
+через тернарный, кратко.
+```
+import java.util.Scanner;
+class Example {
+	public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double a = sc.nextDouble(), b = sc.nextDouble();
+        System.out.print(a < b? '<': a > b? '>': '=');
+    }
+}
+```
+##### Задача 
+Выведите время года по введённому номеру месяца. Если введён ошибочный номер месяца, выведите "error".
+
+Sample Input:
+
+1
+Sample Output:
+
+Зима
+##### Решение
+Через switch каждый вариант выписан.
+```
+import java.util.*;
+class Example1{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int a =sc.nextInt();
+
+        switch (a){
+            case 1 :
+                System.out.println("Зима");
+                break;
+            case 2 :
+                System.out.println("Зима");
+                break;
+            case 3 :
+                System.out.println("Весна");
+                break;
+            case 4 :
+                System.out.println("Весна");
+                break;
+            case 5 :
+                System.out.println("Весна");
+                break;
+            case 6 :
+                System.out.println("Лето");
+                break;
+            case 7 :
+                System.out.println("Лето");
+                break;
+            case 8 :
+                System.out.println("Лето");
+                break;
+            case 9 :
+                System.out.println("Осень");
+                break;
+            case 10 :
+                System.out.println("Осень");
+                break;
+            case 11 :
+                System.out.println("Осень");
+                break;
+                 case 12 :
+                System.out.println("Зима");
+                break;
+            default:
+                System.out.println("error");
+
+        }
+
+
+
+    }
+}
+```
+Альтернативна:
+через switch, более правильно.
+```
+import java.util.*;
+class Example {
+	public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        switch (a) {
+            case 1:
+            case 2:
+            case 12:
+                System.out.print("Зима");
+                break;
+            case 3:
+            case 4:
+            case 5:
+                System.out.print("Весна");
+                break;
+            case 6:
+            case 7:
+            case 8:
+                System.out.print("Лето");
+                break;
+            case 9:
+            case 10:
+            case 11:
+                System.out.print("Осень");
+                break;
+            default:
+                System.out.print("error");
+        }
+    }
+}
+```
+Альтернатива:
+более элегантно через тернарный.
+```
+import java.util.Scanner;
+class Example {
+	public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        if ((a<1)||(a>12)) {
+            System.out.println("error");
+        } else {
+            System.out.println(a < 3? "Зима": a < 6? "Весна": a < 9? "Лето":  a < 12? "Осень":"Зима");
+        }
+    }
+}
+```
+##### Задача 
+На вход подаются координаты точки x, y. Определите, попадает ли точка в заштрихованную область.
+![alt](/img/%D0%9E%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C.png)
+Выведите "Yes", если попадает, и "No" - в противном случае.
+
+Примечание. Считать, что граница принадлежит заштрихованной области.
+
+Sample Input:
+
+-0.5
+0.5
+Sample Output:
+
+Yes
+##### Решение
+Сканер два дабла, и всего 2 варианта на выбор.
+```
+import java.util.*;
+class Example1{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        double x =sc.nextDouble();
+        double y =sc.nextDouble();
+
+        if (x >= 0 && y <= 2-x*x && y >=0 || x < 0 && y >= x && y <=2-x*x) {
+            System.out.println("Yes");
+        } else {
+            System.out.println("No");
+        }
+    }
+}
+```
+##### Задача 
+Богатейшие люди Земли решили создать тайное мировое правительство  ̶и̶ ̶у̶п̶р̶а̶в̶л̶я̶т̶ь̶ ̶п̶л̶а̶н̶е̶т̶о̶й̶,̶ ̶н̶е̶ ̶п̶р̶и̶в̶л̶е̶к̶а̶я̶ ̶в̶н̶и̶м̶а̶н̶и̶я̶ ̶с̶а̶н̶и̶т̶а̶р̶о̶в̶. В кабинет совещаний могут войти только те, кто указан в специальном списке: Джефф Безос, Илон Маск,  Марк Цукерберг, Билл Гейтс. Чтобы получить допуск, нужно сказать фразу-приветствие. Если фраза-приветствие содержит имя из списка, проход разрешается. Если же нет - проход блокируется.
+
+На ввод подаётся фраза-приветствие. Выведите "Добро пожаловать!", если имя есть в списке, и "Здесь никого нет, Вы ошиблись дверью" - если нет.
+
+Примечание. Буква "ё".
+
+Sample Input 1:
+
+Это я, Билл Гейтс
+Sample Output 1:
+
+Добро пожаловать!
+Sample Input 2:
+
+Открывай, Абрамович пришёл!
+Sample Output 2:
+
+Здесь никого нет, Вы ошиблись дверью
+##### Решение
+Довольно простое задание.
+```
+import java.util.*;
+class Example1{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String a =sc.nextLine(); sc.close();
+        String b = "Джефф Безос", c = "Илон Маск", d = "Марк Цукерберг", f = "Билл Гейтс";
+        System.out.println((a.contains(b) || a.contains(c) || a.contains(d) || a.contains(f)) ? "Добро пожаловать!":"Здесь никого нет, Вы ошиблись дверью");
+    }
+}
+```
+##### Задача 
+На вход подаётся слово. Выведите словами количество букв в этом слове. Если букв больше пяти - выведите "Длинное слово". 
+
+Sample Input:
+
+в
+Sample Output:
+
+Одна буква
+##### Решение
+Через свитч, ищем ленг стринга сканера.
+```
+import java.util.*;
+class Example1{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String a = sc.nextLine();
+        int b = a.length();
+
+        switch (b) {
+
+            case 0:
+                System.out.println("Ноль букв");
+                break;
+            case 1:
+                System.out.println("Одна буква");
+                break;
+            case 2:
+                System.out.println("Две буквы");
+                break;
+            case 3:
+                System.out.println("Три буквы");
+                break;
+            case 4:
+                System.out.println("Четыре буквы");
+                break;
+            case 5:
+                System.out.println("Пять букв");
+                break;
+            default:
+                System.out.println("Длинное слово");
+        }
+
+
+    }
+}
+```
+Альтернатива:    
+Сокращённый свитч.
+```
+import java.util.Scanner;
+class Example {
+	public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        String w = input.next();
+        input.close();
+        switch (w.length()) {
+            case 1: System.out.print("Одна буква"); break;
+            case 2: System.out.print("Две буквы"); break;
+            case 3: System.out.print("Три буквы"); break;
+            case 4: System.out.print("Четыре буквы"); break;
+            case 5: System.out.print("Пять букв"); break;
+            default: System.out.print("Длинное слово");
+}}}
+```
+---
+### 4 Циклы     
+
+#### 4.1 While
+
+##### Задача 
+
+##### Решение
