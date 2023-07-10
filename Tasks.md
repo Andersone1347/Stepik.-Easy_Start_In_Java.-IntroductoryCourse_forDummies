@@ -2936,5 +2936,169 @@ class Example {
 #### 4.1 While
 
 ##### Задача 
+На вход подаётся натуральное число n. Выведите на печать числа от единицы до введённого числа включительно, каждое на новой строке.
 
+Sample Input:
+
+5
+Sample Output:
+
+1
+2
+3
+4
+5
+##### Решение
+Инт со сканера, инт равный 1 точка отчёта, цикл while в условие точка отчёта польше или равно инту со сканера в теле саут точка отчета инкремент точка отчёта.
+```
+import java.util.Scanner;
+class MyNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = 1;
+        while (b <= a){
+            System.out.println(b);
+            b++;
+        }
+    }
+}
+```
+##### Задача 
+На ввод подаётся натуральное число n. Выведите на печать в возрастающем порядке через пробел квадраты натуральных чисел, если эти квадраты не превышают n.
+
+Sample Input:
+
+30
+Sample Output:
+
+1 4 9 16 25
+##### Решение
+Сканер считывает число и заводит в переменную а, i точка отчёта равна 1, rezult = 1 это инт в который будет выводиться по указаным правилам Math.pow(i,2) во второй степени.Вайл в условии результат меньше или равно a .В теле вайла i++ то есть 1 во второй степени, 2 во второй и т.д.
+```
+import java.util.Scanner;
+class MyNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int i = 1;
+        int rezult = 1;
+        while (rezult <= a){
+            i++;
+            System.out.print(rezult+" ");
+            rezult = (int) Math.pow(i,2);
+        }
+    }
+}
+```
+Альтернативное решение:    
+Более краткое.
+В n число со сканера(30), а - точка отчёта равная единице, Условие вайл перемножаеться точка отчёта a меньше или равно n. Тело{ саут точка перемножаеться a инкремент} , потом 2 перемножаеться проходит через условие и также в сауте.
+```
+import java.util.*;
+class MyNumber {
+    public static void main(String[] args) {
+        int n = new Scanner(System.in).nextInt(), a = 1;
+        while (a * a <= n){
+            System.out.print(a * a + " ");
+            a++;
+        }
+    }
+}
+```
+##### Задача 
+Считайте со ввода последовательность целых чисел. Последовательность оканчивается числом 0.
+
+Выведите на печать сумму введённых чисел.
+
+Sample Input:
+
+1 2 3 4 5 0
+Sample Output:
+
+15
+##### Решение
+Импортируем сканер, создаём 2 переменные рез = 0 и а = (без разницы) в цикле в неё будут поступать данные со сканера. Вайл условие (a=сканер) не равное нулю. В теле каждое цисло введённое кроме нуля плюсуеться в rez. При окончание цикла саут рез.
+```
+import java.util.*;
+class MyNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int rez = 0;
+        int a = 1;
+        while ((a=sc.nextInt()) != 0){
+        rez +=a;
+        }
+        System.out.print(rez);
+    }
+}
+```
+Альтернативное решение: 
+Всё в цикле.
+```
+import java.util.Scanner;
+class MyNumber {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int sum = 0, n;
+        while ((sum+=n=input.nextInt())*n!=0);
+        input.close();
+        System.out.print(sum);
+}}
+```
+
+##### Задача
+На вход подаётся последовательность слов. Посчитайте общее количество введённых слов.
+
+Примечание. Так как маркер конца последовательности в этой задаче отсутствует, будет удобно воспользоваться методом hasNext(). Найдите самостоятельно, как он работает.
+
+Sample Input:
+
+Java
+Python
+C++
+Go
+PHP
+Sample Output:
+
+5
+##### Решение
+Пока не будет введена пустая строка, счётчик не остановиться и саут не пройдёт.
+```
+import java.util.Scanner;
+class MyNumber {
+    public static void main(String[] args) {
+        Scanner in=new Scanner(System.in);
+
+        int x=0;
+
+        while ( in.nextLine().isEmpty() == false) {x++;}
+
+        System.out.print(x);
+    }
+}
+```
+Альтернативное решение ( которое прошло на степике)
+В идее саут не выводиться.
+```
+import java.util.Scanner;
+class MyNumber {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int count = 0;
+        while (sc.hasNext()) {
+            String word = sc.next();
+            count++;
+        }
+        System.out.print(count);
+    }}
+```
+##### Задача
+##### Решение
+
+##### Задача
+##### Решение
+
+##### Задача
 ##### Решение
