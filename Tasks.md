@@ -3095,8 +3095,200 @@ class MyNumber {
     }}
 ```
 ##### Задача
-##### Решение
+Завершите программу таким образом, чтобы она вывела числа от 1 до 5, каждое на новой строке.
 
+Sample Input:
+
+Sample Output:
+
+1
+2
+3
+4
+5
+```
+class MyTest {
+    public static void main(String[] args) {
+        int x = 1;
+        do {
+            System.out.println(x);
+            x++;
+        } 
+    }
+}
+```
+##### Решение
+После закрытия do, пишем while x<=5.
+```
+class MyTest {
+    public static void main(String[] args) {
+        int x = 1;
+        do {
+            System.out.println(x);
+            x++;
+        } while (x<=5);
+    }
+}
+```
+##### Задача
+На вход подаются числа, которые делятся на 11. Концом последовательности будет любое число, не делящееся на 11 (это число не входит в последовательность).
+
+Посчитайте количество введённых чисел и сумму тех из них, которые кратны 3.
+
+Sample Input:
+
+11 22 33 121 99 15
+Sample Output:
+
+5
+132
+##### Решение
+Создаём сканер, и 3 нулевых инта. a это ввод с консоли, count счетчик введёных чисел, sum это сумма чисел кратных 3. 
+Далее вайл условие (Число с консоли  делиться на 11 без остатка), в тело каунт++, проверка если а делиться на 3 без остатка то, а плюсуеться в sum. sout count и sum.
+```
+import java.util.Scanner;
+class MyTest {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = 0;
+        int count = 0, sum = 0;
+
+        while ((a=sc.nextInt()) % 11== 0 ){
+                count++;
+             if (a% 3 == 0){
+                sum+= a;
+            }
+        }
+        System.out.println(count);
+        System.out.println(sum);
+    }
+}
+```
+Альтернативное решение с break и пояснениями.
+```
+import java.util.Scanner;                      // импорт модуля сканера
+
+class MyTest {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);   // ввод сканера sc
+        int x = sc.nextInt();                 // считать первое значение
+        int count = 0;                       // переменная счетчика чисел
+        int summ = 0;                       // переменная сложения 
+        while (x % 11 == 0)                // цикл пока х делиться на 11
+        {
+            count++;                     // прибавляем к счетчику +1
+            if (x % 3 == 0)             // если число делиться также на 3
+            {
+                summ = summ + x;      // складываем число с суммой таких чисел
+            }
+            x = sc.nextInt();       // вводим новое значение с консоли
+            if (x % 11 != 0)       // проверяем число на делимость на 11
+            {
+                break;           // если не делиться останавливаем цикл
+            }
+        } 
+        
+        System.out.println(count);     // вывод результата количества чисел последовательности
+        System.out.println(summ);     // вывод результата сложения чисел делящихся на 3
+    }
+}
+```
+
+##### Задача
+На вход подаётся последовательность чисел от нуля до 10, являющихся рейтингами фильма, выставленными зрителями. Если входящее число отрицательное или больше 10, последовательность прерывается.
+
+Посчитайте среднюю оценку фильма. 
+
+Sample Input:
+
+5 6 7 8 9 10 11
+Sample Output:
+
+7.5
+##### Решение
+Всё как и в прошлом задании только вместо интов даблы, и убираем ифы, саут сумма деленная на каунт.
+```
+import java.util.Scanner;
+class MyTest {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double a = 0;
+        double count = 0, sum = 0;
+        while ((a=sc.nextInt()) >= 0 && a<11){
+            count++;sum+= a;
+        }
+        System.out.println(sum/count);
+    }
+}
+```
+
+##### Задача
+На вход подаётся натуральное число. Выведите на печать составляющие его цифры в обратном порядке.
+
+Sample Input:
+
+12345
+Sample Output:
+
+54321
+##### Решение
+Сканер принимает стринг, инт б равен длинне символов стринга а (-1), по сути цикл от большего к меньшему включая 0 выводит индексы строки .
+```
+import java.util.Scanner;
+class MyTest {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String a = sc.nextLine();
+        int b = a.length() -1;
+        do {
+            System.out.print(a.charAt(b));
+            b--;
+        } while (b>=0);
+    }
+}
+```
+Альтернативные решения:
+C помощью метода reserve()
+```
+import java.util.Scanner;
+class MyNumber {
+    public static void main(String[] args) {
+        String num = new Scanner(System.in).nextLine();
+        System.out.print(new StringBuilder(num).reverse());
+    }
+}
+```
+Через массив и цикл for.
+```
+import java.util.Scanner;
+
+class MyNumber {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String str = in.nextLine();
+        char[] arr = str.toCharArray();
+        for(int i = arr.length - 1; i >= 0; i--) {
+            System.out.print(arr[i]);
+        }
+    }
+}
+```
+##### Задача
+На вход подаётся строка с двумя буквами, а затем - строка, состоящая из слов. Выведите на печать все слова, которые начинаются на буквы, идущие по алфавиту между буквами с первой строки (включительно). Вывести слова необходимо в том же порядке, в котором они подаются на вход.
+
+Sample Input:
+
+j p
+java python c++ kotlin php sql http css javascript r go
+Sample Output:
+
+java
+python
+kotlin
+php
+javascript
+##### Решение
+Сканер принимает 2 стринга сразу переводим их в инты CharAt, вайл принимаем слова в условии sc.hasNext(), в теле пишем стринг принимающий слова и условие вывода в данном примере (если первая буква стринга больше или равна a1 и меньше или равна b1) то выводим в саут. В примере задачки это слова начинающиеся на j,k,l,m,n,o,p .
 ##### Задача
 ##### Решение
 
