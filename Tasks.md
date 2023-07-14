@@ -3430,11 +3430,132 @@ class MyNumber {
 ```
 
 ##### Задача
-##### Решение
+На вход подаётся два натуральных числа x и y. Выведите на печать прямоугольник из звёздочек размером x*y.
 
+Sample Input:
+
+4 2
+Sample Output:
+
+**
+**
+**
+**
+##### Решение
+Сканер 2 инта, Первый цикл выводит a(число) пустых строк, а второй b(число) выводит количество звёздочек на них. 
+```
+import java.util.Scanner;
+class MyNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a =sc.nextInt(), b = sc.nextInt();
+        for (int i = 1; i <= a; i++) {
+                for (int j = 0; j < b; j ++) {
+                    System.out.print("*");
+            }
+            System.out.println();
+            }
+    }}
+```
+Альтернативное решение:
+c пояснением.
+```
+import java.util.Scanner;
+class Example {
+	public static void main(String[] args) {
+Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt(),b = sc.nextInt(); 
+          for (int x=0; x<a; x++) { // внешний цикл открывается
+          for (int y=0; y<b; y++) { System.out.print("*");} //вложенный цикл
+          System.out.println();}   //внешний цикл закрывается
+           sc.close();  
+    }
+}
+```
 ##### Задача
-##### Решение
+На вход подаётся несколько целых чисел. Выведите эти числа, возведённые в степени от двух до пяти. 
 
+Формат вывода: для каждого введённого числа степени выводятся в отдельной строке через пробел. 
+
+Примечание. Каждая строка вывода оканчивается числом, а не пробелом.
+
+Sample Input:
+
+1 2 3
+Sample Output:
+
+1 1 1 1
+4 8 16 32
+9 27 81 243
+##### Решение
+Сканер, вайл в условии hasNext считывает до пробела, цикл фор каждое цисло ведёт по степеням от 2 до 5.
+```
+import java.util.Scanner;
+class MyNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while (sc.hasNext()){
+            int a = sc.nextInt();
+            for (int i = 2; i<=5; i++)
+                if (i==2) {
+                System.out.print((int) Math.pow(a, i));
+        } else {
+                    System.out.print(" "+(int) Math.pow(a, i));
+                }
+            System.out.println();
+        }
+    }}
+```
+Альтернативные решения:
+без math.pow
+```
+import java.util.Scanner;
+  class Example {
+	public static void main(String[] args) {
+        Scanner ch = new Scanner(System.in);
+         while (ch.hasNextInt()) {
+            int x = ch.nextInt();                
+                System.out.println(x*x + " " + x*x*x + " " + x*x*x*x + " " + x*x*x*x*x);
+               
+            }
+        
+
+    }
+}
+```
+java c коментами
+```
+import java.util.Scanner;                      // импорт модуля сканера
+
+class MyTest {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);   // ввод сканера sc
+        boolean n = true;                   // переменная для цикла
+        int a = 0;                          // переменная для считывания числа
+        int b = 0;                          // переменная для возведения в степень
+        
+        while (n=sc.hasNext())                // цикл на количество чисел
+        {
+           a = sc.nextInt();                  // считать число
+           for (int i = 2; i <= 5; i++)       // цикл от 2 до 5 (степени)
+           {
+             if (i != 5)                     // если i не равно 5
+             {
+             b =  (int) Math.pow(a, i);     // возвести в степень
+             System.out.print(b + " ");     // печать число + пробел
+             }
+             else                           // если равно 5
+             {
+              b =  (int) Math.pow(a, i);   // возвести в степень
+             System.out.println(b);        // печать числа без пробела и перенос на новую строку
+             }
+               
+           }
+        }  
+            
+        }
+}
+```
 ##### Задача
 ##### Решение
 
