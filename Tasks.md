@@ -3557,10 +3557,118 @@ class MyTest {
 }
 ```
 ##### Задача
+Напечатайте "лесенку" из чисел от единицы до n, n > 0.
+
+Примечание. Каждая строка в "лесенке" заканчивается цифрой (не пробелом).
+
+Sample Input:
+
+3
+Sample Output:
+
+1
+1 2
+1 2 3
 ##### Решение
+Сканер, заводим в переменную, первый цикл ограничение до числа со сканера, второй выводит число в консоль, с помощью ифа разбивает где пробел а где новая строка.
+```
+import java.util.Scanner;
+
+class Example {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        for (int i = 1; i <= a; i++) {
+            for (int j = 1; j <= i; j++) {
+                if(i==j){
+                    System.out.print(j+"\n");
+                } else {
+                    System.out.print(j+" ");
+                }
+            }
+        }
+    }
+}
+```
+Альтернативные решения:  
+тернарный вариант с пояснением.
+```
+import java.util.Scanner;
+class MyProgram {
+	public static void main(String[] args) {
+        int n = new Scanner(System.in).nextInt();
+        for (int i=1; i<=n; i++)//цикл с количеством повтором, равным введенному номеру
+            for (int y=1;y<=i;y++)//цикл лесенки
+                System.out.print(y+(y==i?"\n":" "));//выводим на печать, добавляя перевод строки если это конец строки или пробел
+	}
+}
+```
+##### Задача
+Предположим, что мы работаем с последовательностью такого вида:
+
+1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, ... .
+
+Выведите на печать n (n > 0) членов данной последовательности в одну строку через пробел. 
+
+Sample Input:
+
+5
+Sample Output:
+
+1 2 2 3 3
+##### Решение
+Сканер, a считывает сканер, count счётчик когда станет больше a будет break;. первый цикл считывает какое именно число выводить, а второй слокько раз.
+```
+import java.util.Scanner;
+class Example {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt(), count=0;
+        for (int i = 1; i <= a; i++) {
+            for (int j = 1; j <= i; j++) {
+                count++;
+                if(count<=a){
+                    System.out.print(i+" ");
+                } else {
+                    break;
+                }
+            }
+        }
+    }
+}
+```
+Альтернативные решения:  
+c cчётчиком в самом цикле     
+```
+import java.util.*;
+class MyProgram {
+	public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int n = input.nextInt(), cnt=0;
+        for (int i = 1; i<=n; i++) {
+            for (int j = 1; j<=i && cnt++<n; j++)
+            System.out.print(i+" ");
+}}}
+```
+
 
 ##### Задача
-##### Решение
+Объединим две предыдущие задачи. Выведите "лесенку" из членов последовательности из предыдущего шага от единицы до n, n > 0.
 
-##### Задача
+Sample Input 1:
+
+5
+Sample Output 1:
+
+1
+1 2
+1 2 2
+1 2 2 3
+1 2 2 3 3
+Sample Input 2:
+
+1
+Sample Output 2:
+
+1
 ##### Решение
