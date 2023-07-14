@@ -3392,7 +3392,42 @@ class MyProgram {
 ```
 
 ##### Задача
+на вход подаётся два натуральных числа - n и m. Напечатайте число n, повторённое m раз в одной строке через пробел.
+
+Sample Input:
+
+3 5
+Sample Output:
+
+3 3 3 3 3
 ##### Решение
+Сканер 2 числа,цикл фор от 0 до 2 числа со сканера.
+```
+import java.util.Scanner;
+class MyNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt(), b = sc.nextInt();
+        for (int i = 0; i < b; i++) {
+                System.out.print(a+" ");
+            }
+    }}
+```
+
+Альтернативное решение:
+c пояснениями.
+```
+import java.util.*;
+class MyNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int m = sc.nextInt();//число которое нужно ввести n-раз
+        int n = sc.nextInt();//количество раз, которое нужно вывести число n
+        for (int i = 1; i <= n; i++){//for для количества повторений n-раз
+            System.out.print(m + " ");}//вывод числа m по циклу
+    }
+}
+```
 
 ##### Задача
 ##### Решение
