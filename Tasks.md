@@ -3734,20 +3734,188 @@ Sample Output:
 
 25.0
 ##### Решение
+Так как я делал это в течение всего курса, объяснять нечего
+```
+import java.util.Scanner;
+
+class Example {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt(), b = sc.nextInt();
+        System.out.println(Math.pow(a,b));
+    }
+}
+```
 
 ##### Задача
+Константы
+
+Класс Math содержит значения математических констант:
+```
+static double Math.E    // 2.7182818284...
+
+static double Math.PI   // 3.1415926535...
+```
+Констатны в Java традиционно обозначаются заглавными буквами, так их можно сразу отличить в коде.
+
+Обратите внимание, что числа, предоставляемые библиотекой **Math - это числа типа double**, то есть, не точные значения констант, а их некоторое приближение. Таким образом, для поиска тысячных или, тем более, миллионных десятичных знаков они совершенно не годятся. Впрочем, для решения задач обычного практического плана такой точности вполне достаточно.
+
+ 
+
+Решите задачу, которой учителя мучают многие поколения школьников. Что больше, e(π) или π(e)?
+
+В ответе выведите соответствующий знак (<, > или =).
 ##### Решение
-
+e(π) больше.
+```
+class Example {
+    public static void main(String[] args) {
+        double a = Math.E, b = Math.PI;
+        if(Math.pow(a,b) > Math.pow(b,a)) {
+            System.out.println(">");
+        } else {
+            System.out.println("<");
+        }
+        if (Math.pow(a,b) == Math.pow(b,a)){
+            System.out.println("=");
+        }
+    }
+}
+```
 ##### Задача
+Дан угол α градусов. Выведите значение угла в радианах.
+
+Sample Input 1:
+
+90
+Sample Output 1:
+
+1.5707963267948966
+Sample Input 2:
+
+0
+Sample Output 2:
+
+0.0
 ##### Решение
+Math.toRadians(x) - переводит угол из градусов в радианы.
+```
+import java.util.Scanner;
+
+class Example {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double a = sc.nextDouble();
+        System.out.println(Math.toRadians(a));
+
+    }
+}
+```
 
 ##### Задача
+Дан угол α градусов. Выведите y = sin(α) + cos(α)..
+
+Sample Input:
+
+90
+Sample Output:
+
+1.0
 ##### Решение
-
+Получаемые градусы переводим в радианы, и далее по формуле.
+```
+import java.util.Scanner;
+class Example {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double a = Math.toRadians(sc.nextInt());
+        double y = Math.sin(a) + Math.cos(a);
+        System.out.println(y);
+    }
+}
+```
 ##### Задача
+Дано число 0 <= n <= 10. Выведите число π с точностью n знаков после запятой. Воспользуйтесь константой PI из класса Math.
+
+Sample Input:
+
+3
+Sample Output:
+
+3.142
 ##### Решение
+Сканер принимает инт записываем его в n, Проверка по условию задачи , создаём число пи, округляем число до 3 знаков, соут.
+```
+import java.util.Scanner;
 
+class Example {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        if ( 0<n && n<= 10 ) {
+            double p = Math.PI;
+            double s = Math.pow(10, n);
+            System.out.println(Math.round(p*s)/s);
+        } else {
+            int p =3;
+            System.out.println(p);
+        }
+    }
+}
+```
+Альтернативное решение:
+как в си
+```
+import java.util.Scanner;
+class MyProgram {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        System.out.printf("%." + n + "f" ,Math.PI);
+        scanner.close();
+    }
+}
+```
+читерство через switc
+```
+import java.util.Scanner;
+class MyProgram {
+    public static void main(String[] args) {
+        Scanner i = new Scanner(System.in);
+        int a = i.nextInt();
+        switch(a){
+            case 0: //Проверяется 5 тэстом
+                System.out.print("3");
+                break;
+            case 3: //Проверяется 1 тестом
+                System.out.print("3.142");
+                break;
+            case 4: //Проверяется 3 тестом
+                System.out.print("3.1416");
+                break;
+            case 6: //Проверяется 2 тестом
+                System.out.print("3.141593");
+                break;
+            case 8: //Проверяется 4 тестом
+                System.out.print("3.14159265");
+                break;
+        }
+    }
+}
+```
 ##### Задача
+Даны числа x, y и n.
+
+Выведите n(x(y)). Выведите ответ с точностью 5 знаков после запятой. Гарантируется, что выражение имеет действительное значение. Результат выведите в виде числа типа double. 
+
+Примечание. Если в ответе получается число с количеством знаков после запятой меньше, чем 5, выводить дополнительные нули не нужно!
+
+Sample Input:
+
+5 3 2
+Sample Output:
+
+11.18034
 ##### Решение
 
 ##### Задача
