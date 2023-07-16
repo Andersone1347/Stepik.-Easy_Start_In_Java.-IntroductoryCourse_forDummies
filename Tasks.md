@@ -3917,10 +3917,47 @@ Sample Output:
 
 11.18034
 ##### Решение
+```
+import java.util.Scanner;
 
+class Example {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double x = sc.nextDouble(), y = sc.nextDouble(), n = sc.nextDouble();
+        double a = Math.pow(x, y);//возведение в степень
+        double root = Math.pow(a,(1.0/n));//извлекаем корень квадратный
+        double dlina = Math.pow(10 , 5);//количество знаков после запятой
+        System.out.println(Math.round(root * dlina)/dlina);
+    }
+}
+```
 ##### Задача
-##### Решение
+На вход подаются длины двух катетов прямоугольного треугольника a и b. Посчитайте и выведите на печать периметр этого треугольника. Значение периметра необходимо округлить до целого (в математическом смысле, не типа int).
 
+Sample Input:
+
+3 4
+Sample Output:
+
+12.0
+##### Решение       
+на основании предыдущей задачи получилось недолго и не сложно:
+1. объявили double переменные a и b.
+2. double с (гипотенуза) = Математический.квадрат(а*а + b*b);
+3. double периметр = Математическое.округление(а+b+c);
+4. Строка результат = Строка.формат("%.1f", периметр);
+5. Вывод(Дабл.valueOf(результат));     
+```
+import java.util.Scanner;
+class MyProgram {
+    public static void main(String[] args) {
+        Scanner a = new Scanner(System.in);
+        double x = a.nextDouble();
+        double y = a.nextDouble();
+        System.out.println((double)Math.round(Math.sqrt(x*x + y*y) +x +y));
+    }
+}
+```
 ##### Задача
 ##### Решение
 
