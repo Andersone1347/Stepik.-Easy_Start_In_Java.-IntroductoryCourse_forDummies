@@ -3959,6 +3959,120 @@ class MyProgram {
 }
 ```
 ##### Задача
+Завершите программу таким образом, чтобы она вывела на печать фразу "In the loop" семь раз, каждый раз с новой строки.
+
+Sample Input:
+
+
+Sample Output:
+
+In the loop
+In the loop
+In the loop
+In the loop
+In the loop
+In the loop
+In the loop
+```
+class MyNumber {
+    public static void main(String[] args) {
+        int x = 1;
+        while (x <= _) {
+            System.out.println("In the loop");
+            ___;
+        }
+    }
+}
+```
+##### Решение
+Добавил 7 и инкремент.
+```
+class MyNumber {
+    public static void main(String[] args) {
+        int x = 1;
+        while (x <= 7) {
+            System.out.println("In the loop");
+            x++;
+        }
+    }
+}
+```
+##### Задача
+Исправьте программу таким образом, чтобы она вывела на печать фразу "Java rocks!"
+
+Sample Input:
+
+Sample Output:
+
+Java rocks!
+
+##### Решение
+```
+class MyNumber {
+    public static void main(String[] args) {
+        int a = 144;
+        int b = 33;
+        if (a > 10 && b <= 100) {
+            System.out.println("Java rocks!");            
+        }
+    }
+}
+```
+##### Задача
+Выведите на печать натуральные числа от 1 до 5 по порядку, каждое число на новой строке.
+
+Sample Input:
+
+Sample Output:
+
+1
+2
+3
+4
+5
+##### Решение
+```
+class MyNumber {
+    public static void main(String[] args) {
+        for (int i=1; i<=5; i++){
+            System.out.println(i);
+        }
+    }
+}
+```
+##### Задача
+На вход подаётся целое число. Выведите его максимальную цифру.
+
+Sample Input:
+
+12345
+Sample Output:
+
+5
+##### Решение
+```
+ Scanner str = new Scanner(System.in);
+        int a = Math.abs(str.nextInt()), r=0;        // модуль числа, и с чем сравнивать число
+        String d = Integer.toString(a);                  // преводим в строку
+        int f = d.length();                                        // высчитываем длину числа
+        for( int m=0 ; m<f ; m++){                         // запускаем цикл , сколько символов
+            int k = a%10;                                           // выводим остаток
+            a = a/10;                                                  // делим число на 10, чтоб остаток был следующие число
+            r= Math.max(r,k);}                                 // выбираем большее
+        System.out.println(r);                               // печать
+    }
+}
+```
+##### Задача
+##### Решение
+
+##### Задача
+##### Решение
+
+##### Задача
+##### Решение
+
+##### Задача
 ##### Решение
 
 ##### Задача
