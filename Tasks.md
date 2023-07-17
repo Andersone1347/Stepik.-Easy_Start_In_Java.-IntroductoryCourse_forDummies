@@ -4064,15 +4064,141 @@ Sample Output:
 }
 ```
 ##### Задача
+Выведите все нечётные целые числа, находящиеся между введёнными числами (включительно), в одной строке через пробел, в порядке возрастания. 
+
+Sample Input 1:
+
+4 10
+Sample Output 1:
+
+5 7 9 
+Sample Input 2:
+
+3 11
+Sample Output 2:
+
+3 5 7 9 11
 ##### Решение
+Находим минимальный и максимальный инт,и пихаем в цикл. проверка на чётность, sout.
+
+```
+import java.util.Scanner;
+
+class Example {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt(), b = sc.nextInt();
+        int max = Math.max(a,b), min =Math.min(a,b);
+        for (int i = min; i <= max; i++){
+            if(i%2!=0){
+            System.out.print(i+" ");}
+        }
+    }
+}
+```
 
 ##### Задача
-##### Решение
+На вход подаётся натуральное число n. Выведите на печать все его делители в одну строку через пробел.
 
-##### Задача
-##### Решение
+Sample Input:
 
+15
+Sample Output:
+
+1 3 5 15
+##### Решение
+цикл, проверка остатка, соут.
+```
+import java.util.Scanner;
+
+class Example {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        for (int i = 1; i <= a; i++){
+            if((a%i==0)){
+            System.out.print(i+" ");
+            }
+        }
+    }
+}
+```
+альтернативные решения:
+Оптимизация.
+```
+import java.util.Scanner;
+class MyProgram {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        for (int i = 1; i <= n/2; i++)
+            if(n % i == 0)
+                System.out.print(i + " "); 
+        System.out.print(n); 
+        scanner.close();
+    }
+}
+```
 ##### Задача
+На вход подаётся натуральное число n. Определите, является ли это число простым. Выведите true, если число n - простое, и false - если нет.
+
+Sample Input 1:
+
+100
+Sample Output 1:
+
+false
+Sample Input 2:
+
+7
+Sample Output 2:
+
+true
+
+##### Решение
+1. Импорт сканнера
+2. объявляем переменную, что приходит на вход
+3. объявляем переменную, что будет счетчиком и приравниваем ее к 0
+4. Создаем цикл for с i=2, которая не должна превысить число, подающиеся на вход
+5. Внутри цикла создаем условие, что если остаток от деления входного числа от i равно 0, то счетчик из пункта 3 получает ++
+6. Закрываем условие и цикл
+7. Пишем условие, что если счетчик не равен 1 или а равно 0 или а равно 1, то это false, иначе - true. 
+```
+import java.util.Scanner;
+class MyProgram {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt(), count =0;
+        for (int i = 2; i <= a; i++) {
+            if (a % i == 0) {
+                count++;
+            }
+        }
+        if (count!=1 || a == 0 || a == 1){
+            System.out.println(false);
+        } else {
+            System.out.println(true);
+        }
+
+        sc.close();
+    }
+}
+```
+Альтернативное решение:
+BigInteger
+```
+import java.util.Scanner;
+import java.math.BigInteger;
+class MyNumber {
+    public static void main(String[] args) {
+        Scanner mysc = new Scanner(System.in);
+        int n = mysc.nextInt();
+        System.out.print((BigInteger.valueOf(n).isProbablePrime(1)) ? true : false );
+    }
+}
+```
+##### Задача
+
 ##### Решение
 
 ##### Задача
