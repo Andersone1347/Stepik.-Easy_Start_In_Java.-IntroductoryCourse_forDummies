@@ -4406,16 +4406,79 @@ class Quiz{
 }}
 ```
 ##### Задача
-##### Решение
-Альтернативные решения:
-```
+На вход подаётся целое число n - длина последовательности, а затем сама последовательность целых чисел. Выведите на печать все числа, большие предыдущего числа.
 
+Sample Input:
+
+7
+8 3 6 3 4 3 12
+Sample Output:
+
+6 4 12
+##### Решение
+Cканер , int a длинна масива, далее загоняем через сканер в массив числа, и с помощью проверки выводим с соут.
+```
+import java.util.Scanner;
+
+class MyNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int[] arr = new int[a];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = sc.nextInt();
+            if (i > 0 && arr[i] > arr[i - 1])
+                System.out.print(arr[i]+" ");
+        }
+    }
+}
+```
+Альтернативные решения:
+в 2 цикла.
+```
+import java.util.Scanner;
+class Example {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int length = sc.nextInt();
+        int[] array = new int[length + 2];
+        for (int j = 0; j < length; j++) {
+            array[j] = sc.nextInt();            //заполняем массив значениями
+        }
+
+        for (int i = 0; i <= length; i++) {        //проходим по всем параметрам массива
+            if (array[i] < array[i + 1]) {
+                System.out.print(array[i + 1]+" ");
+            }
+        }
+    }
+}
 ```
 ##### Задача
-##### Решение
-Альтернативные решения:
-```
 
+##### Решение
+Сканер в стринг а, и с помощью сплит режем на "," и соут.
+```
+import java.util.Scanner;
+class Example {
+    public static void main(String[] args) {
+        Scanner sc =new Scanner(System.in);
+        String a =sc.nextLine();
+        String[] b = a.split(",");
+        for (String a1:b){
+            System.out.println(a1);
+        }
+    }
+}
+```
+Альтернативные решения:
+replace
+```
+class Example {
+    public static void main(String[] args) {
+        System.out.println(new java.util.Scanner(System.in).nextLine().replace(",", "\n"));
+    }
+}
 ```
 ##### Задача
 ##### Решение
