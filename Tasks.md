@@ -3292,7 +3292,7 @@ javascript
 
 ---
 
-### 4.2 Цикл for
+#### 4.2 Цикл for
 ##### Задача
 Завершите программу таким образом, чтобы она напечатала "Отлично!" 10 раз.
 
@@ -4197,12 +4197,247 @@ class MyNumber {
     }
 }
 ```
-##### Задача
 
-##### Решение
+### 5 Массивы
 
-##### Задача
-##### Решение
+#### 5.1 Массивы - введение
 
 ##### Задача
+На вход подаётся натуральное число n. Создайте массив натуральных чисел от единицы до n включительно и выведите его на печать (в одной строке, через пробел).
+
+Sample Input:
+
+5
+Sample Output:
+
+1 2 3 4 5
 ##### Решение
+Заводим сканер и результат кидаем в инт а, создаём массив и кидаем туда переменную а new int[a], а будет кол-вом чисел.церез цикл for забиваем масив от 0 индекса до длинны (то есть переменной а). sout.
+```
+import java.util.Scanner;
+
+class MyNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int[] arr = new int[a];
+        for (int i=0; i< arr.length; i++){
+            arr[i] = i+1;
+            System.out.println(arr[i]);
+    }
+}}
+```
+Альтернативные решения:
+наглядно в 2 цикла , завёл , потом вывел.
+```
+import java.util.Scanner;
+class MyNumber {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int a = in.nextInt(); in.close();
+        int[] n = new int[a];
+        for (int i = 0; i <a ; i++) {
+            n[i] = i+1;
+        }
+        for (int i = 0; i < n.length; i++) {
+            System.out.print(n[i] + " ");
+        }
+    }
+}
+```
+##### Задача
+На вход подаётся натуральное число n > 0 (длина массива), а на следующей строке - последовательность целых чисел. Создайте из неё массив и выведите на печать значение последнего элемента массива.
+
+Sample Input:
+
+5
+1 2 3 4 5
+Sample Output:
+
+5
+##### Решение
+Как в прошлом задание закинул в массив числа, а вывел через а-1.
+```
+import java.util.Scanner;
+
+class MyNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int[] arr = new int[a];
+        for (int i=0; i< arr.length; i++){
+            arr[i] = sc.nextInt();
+
+    }
+        System.out.println(arr[a-1]);
+}}
+```
+Альтернативные решения:
+java c коментами.
+```
+import java.util.Scanner;
+class MyNumber {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();// считываю длину массива
+        int[]num=new int[n];// объявляю массив n-длины
+        int a=0;  //создаю ячейку для хранения 
+        for (int i=0;i<num.length;i++){ 
+            num[i]=sc.nextInt();//привязка цифр последовательности к индексам массива+ считывание последовательности
+            a=num[i]; //хранение последней считанной цифры
+        }  
+        System.out.print(a);
+    }
+}
+```
+##### Задача
+На вход подаётся натуральное число n > 0, на следующей строке - последовательность целых чисел, а затем - индекс id < n. Создайте из неё массив и выведите на печать значение элемента массива c индексом id.
+
+Sample Input:
+
+5
+1 2 3 4 5
+1
+Sample Output:
+
+2
+##### Решение
+Из предыдущей задачки просто добавили сканер в саут.
+```
+import java.util.Scanner;
+
+class MyNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int[] arr = new int[a];
+        for (int i=0; i< arr.length; i++){
+            arr[i] = sc.nextInt();
+
+    }
+        System.out.println(arr[sc.nextInt()]);
+}}
+```
+Альтернативные решения:
+java c коментами.
+```
+import java.util.Scanner;
+class MyNumber {
+    public static void main(String[] args) {
+        Scanner scan=new Scanner(System.in);
+        int n=scan.nextInt(); //считала длину массива
+        int [] myarray=new int[n]; //создала массив
+        for (int i=0; i<myarray.length; i++){
+            myarray[i]=scan.nextInt();//считать последовательность и ее в массив поместить,присвоив соотв.индексы
+        }
+        int a=scan.nextInt();//считываю индекс нужного числа
+        System.out.print(myarray[a]);
+        scan.close();
+    }
+}
+```
+##### Задача
+На вход подаётся целое число n > 1. Сформируйте массив чётных чисел от 2 до n (включительно).
+
+Выведите на печать массив в одной строке, через пробел.
+
+Посчитайте и выведите на печать сумму элементов массива.
+
+Sample Input:
+
+10
+Sample Output:
+
+2 4 6 8 10
+30
+##### Решение
+сканер, инт а , в длинну масива а+1, и sum=0 (это будет считаться сумма), цикл и по такой логике (рис1) вносим в массив и выводим числа которые прошли условия и плюсуем в sum, и в конце выводим sum. 
+![alt](/img/5.1%20%D0%BC%D0%B0%D1%81%D0%B8%D0%B2%D1%8B.jpg  "рис1")
+```
+import java.util.Scanner;
+
+class MyNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int[] arr = new int[a+1];
+        int sum = 0;
+        for (int i=1; i< arr.length; i++){
+            if(i%2==0){
+                arr[i] = i;
+                sum+=i;
+                System.out.print(" "+i);
+            }
+
+    }
+        System.out.println("\n"+sum);
+}}
+```
+Альтернативные решения:
+через 2 цикла.
+```
+import java.util.Scanner;
+class Example {
+    public static void main(String[] args) {
+        int n = new Scanner(System.in).nextInt(),
+            sum = 0;
+        int[] arr = new int[n/2];
+        for (int i=2, j=0; j < arr.length; sum += i, i+=2, j++) arr[j] = i;
+        for (int i=0; i < arr.length; i++) 
+            System.out.print(arr[i] + (i < arr.length-1 ? " " : "\n"));
+        System.out.print(sum);
+    }
+}
+```
+java c коментами.
+```
+import java.util.Scanner;
+import java.util.Arrays;
+class Quiz{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n=sc.nextInt()/2, sum=0; //считываем ввод длины массива, и сразу делим на 2 (т.к. нужны только четные значения), создаем переменную для хранения суммы
+        int[] arr= new int[n]; //создаем массив длиной n
+        for(int i=0; i<n; i++){ //перебираем значения массива от 0 до n
+                arr[i]=(i+1)*2; //записываем значение в каждый из элементов массива
+                sum+=arr[i]; } //прибавляем записанное значение элемента массива к сумме
+        System.out.println(Arrays.toString(arr).replaceAll("\\]|\\[|\\,", ""));//выводим цикл, предварительно заменив все запятые и скобки на пустое место
+        System.out.println (sum);//выводим сумму
+}}
+```
+##### Задача
+##### Решение
+Альтернативные решения:
+```
+
+```
+##### Задача
+##### Решение
+Альтернативные решения:
+```
+
+```
+##### Задача
+##### Решение
+Альтернативные решения:
+```
+
+```
+##### Задача
+##### Решение
+Альтернативные решения:
+```
+
+```
+##### Задача
+##### Решение
+Альтернативные решения:
+```
+
+```
+##### Задача
+##### Решение
+Альтернативные решения:
+```
+
+```
