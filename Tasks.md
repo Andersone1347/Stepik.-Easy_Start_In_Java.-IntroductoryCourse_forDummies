@@ -4480,18 +4480,134 @@ class Example {
     }
 }
 ```
+
+---
+
+#### 5.2 Методы массивов
 ##### Задача
+На вход подаётся натуральное число n, затем несколько целых чисел, разделённых пробелом, а на следующей строке - натуральное число k.  
+Выведите k-е по счёту число по возрастанию. Если такого числа нет, выведите "Ошибка ввода".
+
+Sample Input:
+
+5
+3 12 1 22 17
+3
+Sample Output:
+
+12
 ##### Решение
+Сканер на длинну массива, пронумировываем массив числами со сканера, сортируем массив, сканируем число индекс вывода - 1 и выводим его через проверку.
+```
+import java.util.Arrays;
+import java.util.Scanner;
+
+class MyNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int[] arr = new int[a];
+        for(int i=0; i<arr.length; i++){
+            arr[i] = sc.nextInt();
+        }
+        Arrays.sort(arr);
+        int b = sc.nextInt();
+        if (b>a || b<0){
+            System.out.println("Ошибка ввода");
+        } else {
+            System.out.println(arr[b-1]);
+        }
+
+}}
+```
 Альтернативные решения:
+Всё тоже самое только лаконичней.
+```
+class Example {
+    public static void main(String[] args) {
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+        int n = sc.nextInt();
+        int[] nums = new int[n];
+        for (int i = 0; i < n; i++) nums[i] = sc.nextInt();
+        java.util.Arrays.sort(nums);
+        int index = sc.nextInt() - 1;
+        System.out.print(index >= 0 && index < n ? nums[index] : "Ошибка ввода");
+    }
+}
+```
+##### Задача
+На вход подаётся последовательность целых чисел. Создайте из этой последовательности массив чисел, отсортированный по возрастанию, и выведите на печать.
+
+Sample Input:
+
+3 6 2 14 1
+Sample Output:
+
+[1, 2, 3, 6, 14]
+##### Решение
+Моё неправильное , но прошло
+```
+import java.util.Arrays;
+import java.util.Scanner;
+
+class MyNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int[] arr = new int[5];
+        for(int i=0; i<arr.length; i++){
+            arr[i] = sc.nextInt();
+        }
+        Arrays.sort(arr);
+        System.out.println(Arrays.toString(arr));
+
+
+}}
 ```
 
-```
-##### Задача
-##### Решение
 Альтернативные решения:
+правильно
 ```
+import java.util.Arrays;
+import java.util.Scanner;
 
+class MyNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+         String a = sc.nextLine();
+         String[] b = a.split(" ");
+         int[] c = new int[b.length];
+         for (int i= 0; i<b.length; i++){
+             c[i] = Integer.parseInt(b[i]);
+         }
+         Arrays.sort(c);
+        System.out.println(Arrays.toString(c));
+}}
 ```
+java c коментами
+```
+import java.util.Scanner;
+import java.util.Arrays; 
+class Example {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);      //создаем сканер 
+        int length=0; 
+        String line=sc.nextLine();                //читаем строку
+        String[]words= line.split(" ");            //режем строку, инициализируем массив
+        for (String word: words){                    //заполняем массив
+          length++;                                    //считаем длинну массива для интов 
+        } 
+        int[] number=new int[length];                    //инициализируем массив 
+        for (int i=0; i<length; i++){                        
+            number[i]=Integer.parseInt(words[i]);        //пробегаем по элементам массива , переводя строку в число
+        }
+        Arrays.sort(number);                            //сортируем массив
+        System.out.print(Arrays.toString(number));        //выводим массив ЧИСЕЛ на печать
+   }
+}
+```
+---
+#### 5.3 Задачи на массивы
+
 ##### Задача
 ##### Решение
 Альтернативные решения:
