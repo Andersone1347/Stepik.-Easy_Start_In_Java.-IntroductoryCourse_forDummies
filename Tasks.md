@@ -4609,11 +4609,212 @@ class Example {
 #### 5.3 Задачи на массивы
 
 ##### Задача
+На ввод подаётся последовательность целых чисел. Поменяйте местами соседние элементы последовательности (второй с третьим, четвёртый с пятым и т.д.), кроме первого и последнего. Если находится "одинокий" элемент, который не с чем поменять - необходимо оставить его на месте.
+
+Sample Input:
+
+1 2 3 4 5 6
+Sample Output:
+
+1 3 2 5 4 6
+##### Решение
+моё не правильное, из-за последних чисел.
+```
+class MyNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+         String a = sc.nextLine();
+         String[] b = a.split(" ");
+
+         for (int i= 0; i<b.length; i++){
+             if (i%2==0 && i != 0 && i != b.length-1){
+             System.out.print(b[i-1]+" ");
+         } else if(i%2!=0 && i != 0 && i != b.length-1 ) {
+            System.out.print(b[i+1]+" ");
+        }else {
+                 System.out.print(b[i]+" ");
+             }
+}}}
+```
+Альтернативные решения:
+Правильное c коментами
+```
+import java.util.Scanner;
+class MyNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String a = sc.nextLine();    //ввод стринговой переменной
+        String [] b = a.split(" "); //заводим эту переменную в стринговый массив через сплит
+        System.out.print(b[0]+ " ");   //выводим первое число из массива с пробелом
+        for (int i = 1; i < b.length-2; i+=2) {    //заводим цикл от 1 и до -2 длинны массива и шагом +2
+            System.out.print(b[i+1]+" "+b[i]+" ");//в цикле - выводим позицию массива +1 пробел и позицию массива по счету + пробел
+        }
+        if (b.length%2==0) {    //если длинна массива четная - выводим позицию массива -1
+            System.out.print(b[b.length-1]);
+        }
+        else {    //если не четная выводим позицию массива -2 + пробел и позицию массива -1
+            System.out.print(b[b.length-2] + " " + b[b.length-1]);
+        }
+    }
+}
+```
+##### Задача
+На вход подаётся строка текста. Определите, в каком по счёту слове этого предложения меньше всего букв, и выведите на печать. Если таких слов несколько, выведите номер первого по порядку.
+
+Sample Input:
+
+Java is good
+Sample Output:
+
+2
+##### Решение
+В цикле проверяем длинну I и сначала нулевого массива если меньне то переназначаем, и так далее.
+```
+import java.util.Scanner;
+
+class MyNumber {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String a = sc.nextLine();
+        String[] b = a.split(" ");
+        int d=0;
+        for (int i = 0;i< b.length;i++) {
+            if (b[i].length()<b[d].length()){
+                d=i;
+            }
+        }
+        System.out.println(d+1);
+    }
+}
+```
+
+##### Задача
+Дана последовательность целых чисел. Определите минимальную сумму пар элементов массива, расстояние (разница) между индексами которых равно 2. Если таких пар нет, выведите 0.
+
+Sample Input:
+
+8 7 6 5 4 3 2
+Sample Output:
+
+6
+##### Решение
+моё неправильно
+```
+import java.util.Scanner;
+
+class MyNumber {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String a = sc.nextLine();
+        String[] b = a.split(" ");
+        if(b.length<=2){
+            System.out.println("0");
+            return;
+        }
+        for (int i = 0; i < b.length; i++) {
+            int c = Integer.parseInt(b[i]);
+            int sum =0;
+            System.out.print(c+" ");
+
+        }
+    }
+}
+```
+Альтернативные решения:
+с коментов
+```
+import java.util.Scanner;
+
+class MySolution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String line = sc.nextLine();
+        String [] str2 = line.split(" ");
+        int l = str2.length;
+        int[] num = new int[l];
+        int sum = 0;
+        for(int i = 0; i < l; i++) {
+            num[i] = Integer.parseInt(str2[i]);
+        }
+        if(l >= 3) {
+            sum = num[0] + num[2];
+            for(int i = 0; i < l-2; i++) {
+                if(sum > num[i] + num[i+2])
+                    sum = num[i] + num[i+2];
+            }
+        }
+        System.out.print(sum);
+    }
+}
+```
+java c коментами
+```
+import java.util.Scanner;                      // импорт модуля сканера
+import java.util.Arrays;                       // импорт модуля комманд массивов
+
+class MyTest {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);   // ввод сканера sc
+        String a = sc.nextLine();                 // ввести число а
+        String[] words = a.split(" ");       // ввести массив с разделителем пробел 
+        int len = words.length;           // померить длину массива
+        int[] numbers = new int[len];            // ввести массив на длину числа а
+        int min = 10000;                        // минимальная сумма элементов
+        
+        // ПРЕОБРАЗУЕМ МАССИВ В ЧИСЛОВОЙ
+        for (int i = 0; i < numbers.length; i++) // массив от нуля до длины числа а
+        {
+            numbers[i] = Integer.parseInt(words[i]);
+        }
+
+        if (len <= 2)
+        {
+           min = 0;
+        }
+        else
+        {
+        //ПЕРЕБИРАЕМ МАССИВ
+        min = numbers[0] + numbers[2];   
+        for (int x = 3; x < numbers.length; x++)
+        {
+         if ((numbers[x] + numbers[x-2]) < min)
+         {
+             min = numbers[x] + numbers[x-2];
+         }
+         else if ((numbers[x] + numbers[x-2]) == min)
+         {
+             continue;
+         }
+         else if ((numbers[x] + numbers[x-2]) > min)
+         {
+             continue;
+         }
+         min = numbers[x] + numbers[x-2];
+         }
+         }
+        System.out.print(min);
+    }   
+}
+```
+---
+#### 5.4 Многомерные массивы
+
+##### Задача
 ##### Решение
 Альтернативные решения:
 ```
 
 ```
+
+##### Задача
+##### Решение
+Альтернативные решения:
+```
+
+```
+
 ##### Задача
 ##### Решение
 Альтернативные решения:

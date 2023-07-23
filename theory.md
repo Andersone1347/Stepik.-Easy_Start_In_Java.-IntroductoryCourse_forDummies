@@ -1718,3 +1718,56 @@ for (String s: numbers1) {
 
 System.out.println(numbers1[3]);    // four 
 ```
+
+#### 5.3 Задачи на массивы
+
+**Цикл с обходом элементов массива**
+
+Часто требуется "обойти" весь массив, чтобы произвести над каждым из элементов какую-нибудь операцию. Например, пусть задан массив строк, и давайте напечатаем все, которые начинаются на букву f:
+
+String[] numbers = {"one", "two", "three", "four", "five", "forty two"};
+
+for (int i=0; i < numbers.length; i++) {
+    if (numbers[i].charAt(0) == 'f') {
+        System.out.println(numbers[i]);
+    }
+} 
+Для таких случаев в Java есть специальный цикл (по-английски называется enhanced loop), цикл с обходом всех элементов:
+
+String[] numbers = {"one", "two", "three", "four", "five", "forty two"};
+
+for (String s: numbers) {
+    if (s.charAt(0) == 'f') {
+        System.out.println(s);
+    }
+} 
+Внутри цикла мы инициализируем переменную, соответствующую типу элементов массива, с которым работаем. Эта переменная в каждой итерации цикла будет равна соответствующему элементу массива. Переменная отделяется от массива двоеточием.
+
+Использование такого цикла упрощает код (и, как следствие, снижает количество ошибок) и повышает его понятность.
+
+Важное отличие заключается в том, что в первом варианте мы работаем непосредственно со значениями элементов массива, а во втором - с их копиями:
+
+String[] numbers = {"one", "two", "three", "four", "five", "forty two"};
+
+for (int i=0; i < numbers.length; i++) {
+    if (numbers[i].charAt(0) == 'f') {
+        numbers[i] = "deleted";
+    }
+} 
+
+System.out.println(numbers[3]);    // deleted
+
+
+String[] numbers1 = {"one", "two", "three", "four", "five", "forty two"};
+
+for (String s: numbers1) {
+    if (s.charAt(0) == 'f') {
+        s = "deleted";
+    }
+}
+
+System.out.println(numbers1[3]);    // four 
+
+---
+
+#### 5.4 Многомерные массивы
