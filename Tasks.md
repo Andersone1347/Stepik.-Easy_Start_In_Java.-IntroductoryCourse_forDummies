@@ -5284,6 +5284,28 @@ class MySolution {
     }
 }
 ```
+java c коментами 2
+```
+import java.util.Scanner;
+
+class MySolution {
+    public static void main(String[] args) {
+        
+        Scanner sc = new  Scanner(System.in);
+        String str = sc.nextLine();             //считываем последовательность в строку
+        String[] arr = str.split(" ");          //записываем в массив, разделитель пробел
+
+        for (int i=0; i<arr.length; i++){       //проходим по всем элементам массива
+           int count = 0;                       //создаем счетчик для записи числа совпадений 
+            for (int j=0; j<arr.length; j++){   //берем каждый элемент и еще раз проходим по массиву
+                if (i==0) {count++; break;}     //первый элемент печатаем в любом случае
+                else if(arr[i].equals(arr[j])) {count++;}   //если найдено совпадение, листаем счетчик
+            }
+            if (count==1) {System.out.print(arr[i] + " ");} //печатаем, если найдено только одно совпадение
+        }
+    }
+}
+```
 
 ##### Задача
 ##### Решение
