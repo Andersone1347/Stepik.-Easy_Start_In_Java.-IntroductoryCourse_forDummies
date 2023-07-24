@@ -4802,7 +4802,495 @@ class MyTest {
 #### 5.4 Многомерные массивы
 
 ##### Задача
+Два индийских программиста, Махатма и Джавахарлал, вдруг обнаружили, что таблица умножения иногда весьма полезна для программистов, и решили её выучить. Помогите нашим индийским друзьям!
+
+На вход подаются числа n и m. Выведите таблицу умножения n * m (см. пример).
+
+Sample Input:
+
+3 4
+Sample Output:
+
+1 2 3 4
+2 4 6 8
+3 6 9 12
 ##### Решение
+по алишеву сделал
+```
+import java.util.Scanner;
+class Example {
+    public static void main(String[] args) {
+        Scanner sc =new Scanner(System.in);
+        int a =sc.nextInt(), b = sc.nextInt();
+        int [][] num = new int[a][b];
+        for (int i = 0; i<a; i++) {
+            for (int j = 0; j < b; j++) {
+                num[i][j] = (i + 1) * (j + 1);
+                if (j == b - 1) {
+                    System.out.print(num[i][j]);
+                } else {
+                    System.out.print(num[i][j] + " ");
+                }
+            }
+            System.out.println();
+        }
+}}
+```
+Альтернативные решения:
+без массивов
+```
+import java.util.Scanner;
+class MySolution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        for (int i =1;i<=n;i++){
+            System.out.print(i);
+            for (int j = 2;j<=m;j++){
+                System.out.print(" "+i*j);
+            }
+            System.out.println("");
+        }
+
+
+    }
+}
+```
+
+##### Задача
+На ввод подаются несколько строк текста. Вначале подаётся число n - количество строк, а затем сами строки. Знаки препинания удалены.
+
+Образуйте многомерный массив слов из этих строк и выведите его на печать. 
+
+Примечание. В ходе работы вы можете столкнуться с проблемой вроде этого:
+
+[]
+[Не, пей, вина, Гертруда]
+[Быть, или, не, быть]
+[Бедный, Йорик]
+Это важный вопрос, связанный с особенностями работы методов ввода nextInt()  и nextLine().
+Попробуйте самостоятельно разобраться и решить эту проблему.
+
+Sample Input:
+
+4
+Не пей вина Гертруда
+Быть или не быть
+Бедный Йорик
+Неладно что-то в датском королевстве
+Sample Output:
+
+[Не, пей, вина, Гертруда]
+[Быть, или, не, быть]
+[Бедный, Йорик]
+[Неладно, что-то, в, датском, королевстве]
+##### Решение
+C помощью комментария Михайло Лумей.
+```
+import java.util.Arrays;
+import java.util.Scanner;
+
+class MySolution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String n = sc.nextLine();
+        int size = Integer.parseInt(n);
+        String[][] str = new String[size][];
+        for (int i = 0; i<size; i++){
+            str[i] = sc.nextLine().split(" ");
+            System.out.println(Arrays.toString(str[i]));}
+    }
+}
+```
+Альтернативные решения:
+c комментами
+```
+import java.util.*;
+class MyNumber {
+    public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in); 
+    int n = sc.nextInt();
+    String t[][]=new String[n][]; // задаем таблицу с n строк
+    String str=sc.nextLine(); //пропускаем 1 строку, она и дает [] в массиве
+        
+    for (int i=0;i<n;i++) {
+        t[i] = sc.nextLine().split(" "); // наполняем массив по строчно
+        System.out.println(Arrays.toString(t[i])); // так же выводим
+    }
+    
+    sc.close();
+    }
+}
+```
+
+##### Задача
+На вход подаётся матрица (двумерный массив). Все элементы матрицы - целые числа. Найдите её размеры и выведите на печать в соответсвии с примером.
+
+Sample Input 1:
+
+1 2 3
+4 5 6
+7 8 9
+Sample Output 1:
+
+Строк: 3
+Столбцов: 3
+Sample Input 2:
+
+1 2
+3 4
+5 6
+7 8
+Sample Output 2:
+
+Строк: 4
+Столбцов: 2
+##### Решение
+В идеи результат не выводиться, но через дебаг можем увидеть, как берем каждую строку и в столбцы заносим ленг а строки через счётчик.
+```
+import java.util.*;
+class MySolution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = 0;
+        int b = 0;
+        while(sc.hasNext()){
+            String[] Arr = sc.nextLine().split(" ");
+            b = Arr.length;
+            a++;
+        }
+        System.out.println("Строк: "+a);
+        System.out.print("Столбцов: "+b);
+    }
+}
+```
+Альтернативные решения:
+java c коментами
+```
+import java.util.Scanner;
+import java.util.Arrays;
+class Example {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String x = sc.nextLine();   //сканирование стороки String
+        String[] xx = x.split(" ");            //преревод в строчный массив сразбитием "пробел"
+        int stolb = xx.length;                //кол-во элиментов = кол столбцов
+        int strok=1;                           //переменная для счёта кол-во строк
+        while(sc.hasNext()) {                /* hasNext() вернет true, если итерация имеет больше значений(скан не                                                 пуст) цикл считываем далее стори */
+            String ns = sc.nextLine();        //сканирование строки
+            strok++;                        // счетчик строк
+        }
+        System.out.println("Строк: " +strok);       //печать кол-ва строк
+        System.out.println("Столбцов: " +stolb);       //печать кол-ва столбцов
+    }
+}
+```
+
+##### Задача
+На вход подаётся матрица (двумерный массив). Все элементы матрицы - целые числа. Напечатайте главную диагональ матрицы в одной строке, через пробел.
+
+Sample Input:
+
+1 2 3
+4 5 6
+7 8 9
+Sample Output:
+
+1 5 9
+##### Решение
+
+```
+import java.util.Scanner;
+import java.util.Arrays;
+class Example {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int x = 0;
+        while(sc.hasNextInt()) {
+            String line = sc.nextLine();
+            String [] b = line.split(" ");
+            System.out.print(b[x] + " ");
+            if(x < b.length-1) x++;
+            else break;
+        }
+    }
+}
+```
+Альтернативные решения:
+java c комментами
+```
+import java.util.*;
+import java.lang.Math;
+
+class MySolution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String line = "";                   // Инициализируем строку, в которую будем сначала всё сохранять
+        int lines = 0, columns = 0;         // Переменные для счётчиков строк и столбцов
+        while(sc.hasNext()){
+            line += sc.nextLine()+"  ";     // Все строчки сохраняем в одну, но добавляем двойной пробел между ними.
+            lines++;                        // Считаем количество строк
+        }
+        sc.close();
+        String[] row = line.split("  ", lines); 
+        // Разбиваем мегастроку в местах двойных пробелов и сохраняем в одномерный массив row, ограничивая его длину количеством строк по счётчику (так туда не попадёт пустая строка после двойного пробела) 
+        String[][] n = new String[lines][]; // Создаём двумерный массив
+        for(int i = 0; i < lines; i++){
+            n[i] = row[i].split(" "); 
+        // Заполняем каждую строчку массива n разбивая каждый элемент массива row в местах одинарных пробелов
+            columns =  row[i].split(" ").length;  // Cчитываем тут же количество столбцов
+        }
+        for(int i = 0; i < Math.min(lines, columns); i++){ 
+        // В условии цикла находим чего меньше - строк или столбцов - это чтобы нечаянно не запросить на вывод несуществующий элемент матрицы, если она не квадратная
+            System.out.print(n[i][i] + " ");     
+        }                
+    }
+}
+```
+
+##### Задача
+На вход подаётся матрица (двумерный массив). Все элементы матрицы - целые числа.
+
+Поверните матрице на 90 градусов по часовой стрелке.
+
+Sample Input:
+
+1 2 3
+4 5 6
+7 8 9
+Sample Output:
+
+7 4 1
+8 5 2
+9 6 3
+##### Решение
+
+```
+import java.util.Scanner;
+
+class MySolution {
+    public static void main(String[] args) {
+     Scanner sc = new Scanner(System.in);
+        int i = 0;
+        String sS = "";
+        
+        while (sc.hasNextLine()) {
+            i++;
+            sS = sS + sc.nextLine() + "/";
+        }
+        
+        String[] mas1 = sS.split("/");
+        String[][] mas = new String[i][];
+        for (int l = 0; l < i; l++)
+            mas[l] = mas1[l].split(" ");
+        
+        for (int j = 0; j < mas[i-1].length; j++) {
+            for (int k = mas.length - 1; k >= 0; k--) {
+                if (k != 0)
+                    System.out.print (mas[k][j] + " ");
+                else
+                   System.out.println (mas[k][j]); 
+            }
+        }
+
+
+        sc.close();
+
+    }
+}
+```
+Альтернативные решения:
+java c коментами
+```
+import java.util.*;
+
+class MyPainfullHobby {
+    public static void main(String[] args) {
+    Scanner in = new Scanner(System.in);
+    String values = "";
+    int rowCount = 0;
+        while (in.hasNextLine()) {                   // Вписываем все значения в строку через два пробела
+        rowCount++;                                  // Считаем ряды
+        values += in.nextLine() + "  ";
+        }
+    in.close();
+    String[] arrRow = values.split("  ", rowCount);  // Создаем и заполняем первый массив
+    String[][] arrNullPos = new String[rowCount][];  // Объявляем двумерный массив
+        
+        for (int i = 0; i < rowCount; i++) {
+        arrNullPos[i] = arrRow[i].split(" ");        // Заполняем двумерный массив
+        }
+    
+    int columnCount = arrNullPos[0].length;                      // Считаем колонки     
+    String[][] arrTransp = new String[columnCount][rowCount];    // Объявляем массив для транспонирования
+        
+        for (int i = 0; i < columnCount; i++) {                  // Транспонируем наш массив в новый
+            for (int j = 0; j < rowCount; j++) {
+                arrTransp[i][j] = arrNullPos[j][i];                
+            }     
+        } 
+
+    String[][] arrMirror = new String[columnCount][rowCount];        // Объявляем массив для отзерккаливания       
+        
+        for (int i = 0; i < columnCount; i++) {                      // Зеркалим массив по горизонтали
+            for (int j = 0; j < rowCount; j++) {        
+                arrMirror[i][j] = arrTransp[i][rowCount - j -1]; 
+                System.out.print(j == rowCount-1 ? arrMirror[i][j]+ 
+                                 "\n" : arrMirror[i][j]+ " ");       // Выводим на печать
+            }            
+        }
+    }
+}
+// Смысл следующий, сначала меняем колонки и строки местами, затем отзеркаливаем массив по горизонтали == поворот на 90 градусов
+```
+---
+#### 5.5 Тест
+
+##### Задача
+На вход подаётся целое число n,  а на следующей строке - последовательность целых чисел через пробел,
+
+Выведите число с индексом n. Если числа с таким индексом нет, выведите "Неверный ввод". 
+
+Sample Input:
+
+4
+1 1 2 3 5 8
+Sample Output:
+
+5
+##### Решение
+```
+import java.util.Scanner;
+
+class MySolution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = Integer.parseInt(sc.nextLine());
+        String [] arr = sc.nextLine().split(" ");
+        if (a<0 || a> arr.length - 1) {
+            System.out.println("Неверный ввод");
+        } else {
+            System.out.println(arr[a]);
+        }
+    }
+}
+```
+Альтернативные решения:
+c циклом for
+```
+import java.util.Scanner;
+import java.util.Arrays;
+
+class MySolution {
+    public static void main(String[] args) {
+        Scanner x = new Scanner(System.in);
+        int n = x.nextInt(); x.nextLine();
+        String b = x.nextLine();
+        String[] arr = b.split(" ");
+        int[] arr2 = new int[arr.length];
+        
+        for ( int i = 0; i < arr.length; i++){
+            arr2[i] = Integer.parseInt(arr[i]);
+        }
+        
+        if (n<0 || n>arr2.length-1) {
+            System.out.println("Неверный ввод");
+        } else {
+            System.out.println(arr2[n]);
+           
+        } 
+    }
+}
+```
+java c коментами
+```
+import java.util.Scanner;
+import java.util.Arrays;
+
+class MySolution {
+    public static void main(String[] args) {
+        
+        Scanner sc = new  Scanner(System.in);
+        int n = Integer.parseInt(sc.nextLine());   //считываем индекс как строку, переводим в int
+        String str = sc.nextLine();                //считываем последовательность в строку
+        String[] arr = str.split(" ");             //записываем в массив, разделитель пробел
+
+        for (int i=0; i<arr.length; i++){          //проходим по всем элементам массива
+            if(i==n) {                             //если элемент находится под индексом n
+                System.out.print(arr[i]); return;  //выводим его на печать, завершаем программу
+            }
+        }
+        System.out.print("Неверный ввод");         //если совпадение не найдено, выводим текст
+    }
+}
+```
+
+
+##### Задача
+На ввод подаётся последовательность целых чисел. Выведите те из них, которые встречаются в последовательности только один раз. Числа нужно вывести в одной строке, через пробел, в том же порядке, как они поступили на ввод.
+
+Sample Input:
+
+16 3 0 3 2 11 2
+Sample Output:
+
+16 0 11
+##### Решение
+c коментов
+```
+import java.util.Scanner;
+import java.util.Arrays;
+
+class MySolution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String[] str = sc.nextLine().split(" ");
+        
+        for(String el:str){
+            int count =0;
+            for(int i =0; i<str.length;i++){
+                if(str[i].equals(el))count++;
+            }
+            if(count==1)System.out.print(el+" ");
+        }
+    }
+}
+```
+Альтернативные решения:
+java c коментами
+```
+import java.util.*;
+class MySolution {
+    public static void main(String[] args) {
+     Scanner sc=new Scanner(System.in);
+     String a=sc.nextLine();
+     sc.close();
+     String[]arr=a.split(" ");
+     for(int i=0;i<arr.length;i++){
+         int y=Integer.parseInt(arr[i]);//перевод в число элемента массива
+         int x=0;//обнуляем счетчик
+         for(String arrr:arr){//проходим по всем элементам массива
+            int num=Integer.parseInt(arrr);//переводим в числа элементы массива
+            if(num!=y){//если элемент не равен прочитанному выше,то увеличиваем счетчик
+               x++;
+            if (x==(arr.length-1)){// если элемент один раз встречается в массиве,то счетчик будет отличаться всего на одну единицу
+                System.out.print(y+" ");
+                
+            } 
+            }
+        }
+     }
+    }
+}
+```
+
+##### Задача
+##### Решение
+
+```
+
+```
 Альтернативные решения:
 ```
 
@@ -4810,6 +5298,10 @@ class MyTest {
 
 ##### Задача
 ##### Решение
+
+```
+
+```
 Альтернативные решения:
 ```
 
@@ -4817,6 +5309,10 @@ class MyTest {
 
 ##### Задача
 ##### Решение
+
+```
+
+```
 Альтернативные решения:
 ```
 
