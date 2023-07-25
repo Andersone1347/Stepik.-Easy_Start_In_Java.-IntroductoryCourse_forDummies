@@ -5308,34 +5308,216 @@ class MySolution {
 ```
 
 ##### Задача
+На вход подаётся матрица (двумерный массив). Все элементы матрицы - целые числа.
+
+Поверните матрицу на 90 градусов против часовой стрелки.
+
+Sample Input:
+
+1 2 3
+4 5 6
+7 8 9
+Sample Output:
+
+3 6 9
+2 5 8
+1 4 7
 ##### Решение
-
 ```
-
+import java.util.Scanner;
+import java.util.Arrays;
+class MySolution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int k = 0, n = 0, m = 0, p = 0;
+        String dataLine = "";
+        String []dataHeight = {};
+        while(sc.hasNext() == true){                          // Проверка есть-ли данные для ввода
+            if (dataLine == ""){dataLine += sc.nextLine();}   // Собираем данные в одну строку с пробелами
+            else {dataLine += " " + sc.nextLine();} 
+            if (k == 0){n = dataLine.split(" ").length;}      // n - Количество столбцов
+            k++;                                              // k - Количество строк
+        }
+        sc.close();
+        dataHeight = dataLine.split(" ");                     // Создаем простой массив
+        m = dataHeight.length;                                // m - Длина массива
+        
+        String[][] mnArr = new String[k][n];                  // Определяем двумерный массив
+        for (int i = 0; i < k; i++){                          // Заполняем двумерный массив
+            for (int j = 0; j < n; j++){
+                mnArr[i][j] = dataHeight[p];
+                p++;
+            }
+        }
+        for (int i = n-1; i >= 0; i--){                          // Поворачиваем массив на 90 градусов
+            for (int j = 0; j <= k-1; j++){
+                System.out.print(j == k-1 ? mnArr[j][i] :  mnArr[j][i] +" ");  // Выводим с учетом пробелов
+            }
+            System.out.println();
+        }
+    }
+} // тяжело,я понимаю
 ```
 Альтернативные решения:
+java c коментами
 ```
+import java.util.Arrays;
+import java.util.Scanner;
 
+class MySolution {
+    public static void main(String[] args) {
+
+        Scanner sc = new  Scanner(System.in);
+        int n=0;         //объявляем счетчик n для записи количества строк
+        String str = ""; //объявляем строковую переменную записи ввода
+
+        while (sc.hasNext()){              //используем метод hasNext(), т.к. конец последовательности не задан
+            str += sc.nextLine() + "\n";   //записываем введенные пользователем строки в переменную str
+            n++;                           //листаем счетчик
+        }
+        String[] arr1 = str.split("\n");   //создаем массив на основе str переменной: [1 2 3, 4 5 6, 7 8 9]
+        String[][] arr2 = new String[n][]; //объявляем новый массив с количеством n строк
+
+        for(int x=0; x<=n-1; x++){
+            arr2[x] = arr1[x].split(" ");  //записываем элементы в новый массив, разделителем служит пробел
+            }                              //например, при выводе на печать arr2[0] получим: [1, 2, 3]
+        int m = arr2[0].length;            //теперь нам известно количество столбцов
+        
+        //печатаем элементы массива, переворачивая по часовой стрелке (создавать новый массив не обязательно)
+        for (int i=m-1; i>=0; i--){
+            for (int j=0; j<n; j++){
+                if (j==n-1) {System.out.println(arr2[j][i]); break;}
+                System.out.print(arr2[j][i] + " ");
+                
+        //[i][j] 
+        //00 01 02
+        //10 11 12
+        //20 21 22
+        //30 31 32
+        
+        //[j][i]
+        //02 12 22 32
+        //01 11 21 31
+        //00 10 20 30
+
+    
+            }
+        }     
+    }
+}
 ```
 
 ##### Задача
+Заполните поле для игры Сапёр.
+
+На вход подаются натуральные числа m и n - размеры игрового поля, затем k - количество мин, далее координаты мин - x и y для каждой мины, нумерация координат начинается с единицы. 
+
+Необходимо вывести на печать игровое поле:
+
+- если в клетке расположена мина, выведите для этой клетки "m" (латиница);
+
+- если в клетке мины нет, нужно посчитать, сколько мин расположено в соседних клетках (включая угловые и боковые), и вывести для этой клетки посчитанное число.  
+
+Примечание. Каждая строка оканчивается символом (не пробелом!).
+
+Sample Input 1:
+
+3 2
+3
+1 1
+2 2
+3 2
+Sample Output 1:
+
+m 2
+3 m
+2 m
+Sample Input 2:
+
+3 3
+1
+1 1
+Sample Output 2:
+
+m 1 0
+1 1 0
+0 0 0
 ##### Решение
 
 ```
+import java.util.*;
 
+class MySolution {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int m=sc.nextInt(), n=sc.nextInt();
+        int [][]arr=new int [m][n];
+               
+           for(int i=0; i<m;i++){
+               for (int j=0;j<n;j++){
+                   arr[i][j]=0;                   
+               }
+           }   int  k=sc.nextInt();
+        for (int i=0;i<k; i++){
+        int x=sc.nextInt(), y=sc.nextInt();
+            arr[x-1][y-1]=1 ; //System.out.print(arr[x-1][y-1]+" ");
+        }     
+            
+        for (int i=0 ; i<m; i++){
+          StringBuilder  builder  = new StringBuilder(); 
+          for (int j=0 ; j<n; j++){
+             if (arr[i][j]==1) builder.append("m" + " "); 
+              else{
+        int leftX = i == 0 ? 0 : i - 1;
+        int rightX = i + 1 >= m ? i : i + 1;
+        int topY = j == 0 ? 0 : j - 1;
+        int bottomY = j + 1 >= n ? j : j + 1;
+        int minesQty = 0;
+        for (int l = leftX; l <= rightX; l++) {
+          for (int o = topY; o <= bottomY; o++) {
+              if (!(l == i && o == j) && arr[l][o] == 1) {
+                  minesQty++;
+           } 
+       }
+}
+        builder.append(minesQty + " ");     
+
+             }      
+            } System.out.println(builder.toString().trim());
+        }
+    }
+}
 ```
 Альтернативные решения:
+java c коментами
 ```
-
-```
-
-##### Задача
-##### Решение
-
-```
-
-```
-Альтернативные решения:
-```
-
+import java.util.Scanner;
+class GameSapperField {
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int m = scn.nextInt(), n = scn.nextInt(),
+                k = scn.nextInt(), x=0, y=0;
+        String[][] a = new String[m][n]; //
+        for (int i=0; i<m; i++) for (int j=0; j<n; j++) a[i][j]="0"; // сначала пусть все элементы нули
+        for (int i=1; i<=k; i++) { x = scn.nextInt(); y = scn.nextInt(); a[x-1][y-1]="m"; } // мины
+        for (int i=0; i<m; i++) {
+            for (int j=0; j<n; j++) { // проверяем каждый элемент
+                if (a[i][j]!="m") {  // если элемент - не мина, проверяем мины вокруг
+                    for (int r=i-1; r<=i+1; r++) {
+                        if (r<0) continue; if (r==m) break; // если первый или последний ряд
+                        for (int t=j-1; t<=j+1; t++) {
+                            if (t<0) continue; if (t==n) break; // если первый или последний столбец
+                            if (a[r][t]=="m") a[i][j]=Integer.parseInt(a[i][j])+1 +""; // если нашли мину
+                        }
+                    }
+                }
+            }
+        }
+        for (int i=0; i<m; i++) {
+            for (int j=0; j<n; j++) {
+                System.out.print(j==n-1 ? a[i][j]+"\n" : a[i][j]+" "); // вывод поля
+            }
+        }
+    }
+}
 ```
